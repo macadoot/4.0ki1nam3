@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet"><title>Ôn thi HK1 2026–2027</title>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f3f2ef;
+  --surface:#ffffff;
+  --ink:#1c1917;
+  --ink-2:#44403c;
+  --muted:#78716c;
+  --line:#e7e5e4;
+  --primary:#292524;
+  --accent:#0d9488;
+  --accent-soft:#ccfbf1;
+  --accent-2:#0f766e;
+  --warn:#f43f5e;
+  --warn-soft:#ffe4e6;
+  --amber-soft:#fef3c7;
+  --amber:#b45309;
+  --radius:20px;
+  --radius-sm:14px;
+  --shadow:0 1px 2px rgba(28,25,23,.04), 0 4px 12px rgba(28,25,23,.04);
+  --shadow-lg:0 4px 6px rgba(28,25,23,.03), 0 12px 32px rgba(28,25,23,.08);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"Be Vietnam Pro",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  min-height:100dvh;
+  -webkit-font-smoothing:antialiased;
+  padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);
+}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.84);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{max-width:1040px;margin:0 auto;padding:16px 20px 0}
+.brand{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  margin-bottom:14px;
+}
+.brand h1{margin:0;font-size:1.25rem;font-weight:700;letter-spacing:-.03em;color:var(--ink)}
+.brand .sub{margin:3px 0 0;font-size:.8rem;color:var(--muted);font-weight:500}
+.pill-date{
+  flex-shrink:0;font-size:.7rem;font-weight:600;
+  padding:6px 11px;border-radius:999px;
+  background:var(--accent-soft);color:var(--accent-2);white-space:nowrap;
+}
+nav{
+  display:flex;gap:2px;overflow-x:auto;
+  scrollbar-width:none;-ms-overflow-style:none;
+  margin:0 -4px;padding:0 4px 12px;
+}
+nav::-webkit-scrollbar{display:none}
+nav button{
+  appearance:none;border:0;background:transparent;
+  font-family:inherit;font-size:.8125rem;font-weight:500;
+  color:var(--muted);cursor:pointer;
+  padding:8px 14px;border-radius:999px;
+  white-space:nowrap;transition:all .15s ease;
+}
+nav button:hover{color:var(--ink);background:rgba(28,25,23,.05)}
+nav button.on{
+  background:var(--primary);color:#fff;font-weight:600;
+  box-shadow:0 2px 8px rgba(28,25,23,.18);
+}
+main{max-width:1040px;margin:0 auto;padding:20px 16px 48px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.card{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px 18px 16px;
+  box-shadow:var(--shadow);transition:box-shadow .2s;
+}
+.card:hover{box-shadow:var(--shadow-lg)}
+.card h3{margin:0 0 4px;font-size:.9375rem;font-weight:650;letter-spacing:-.02em;color:var(--ink)}
+.meta{font-size:.8rem;color:var(--muted);margin-bottom:10px;line-height:1.5}
+.stat{font-size:1.85rem;font-weight:700;letter-spacing:-.04em;color:var(--ink);line-height:1.15}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.84rem;color:var(--ink-2)}
+.badge{
+  display:inline-flex;align-items:center;
+  font-size:.7rem;font-weight:600;
+  padding:3px 9px;border-radius:999px;margin:2px 3px 2px 0;
+}
+.b-blue{background:var(--accent-soft);color:var(--accent-2)}
+.b-pink{background:var(--warn-soft);color:#be123c}
+.b-cream{background:var(--amber-soft);color:var(--amber)}
+.b-grey{background:#f5f5f4;color:var(--muted)}
+.bar{height:7px;background:#e7e5e4;border-radius:999px;overflow:hidden;margin:8px 0 6px}
+.bar>span{
+  display:block;height:100%;border-radius:999px;
+  background:linear-gradient(90deg,#14b8a6,#0d9488);
+  transition:width .4s cubic-bezier(.22,1,.36,1);
+}
+.days{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:12px;margin-top:14px;
+}
+.day{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:13px;min-height:108px;transition:all .15s;
+}
+.day.today{border-color:#5eead4;box-shadow:0 0 0 1px #5eead4, var(--shadow)}
+.day.sel{background:#f0fdfa;border-color:var(--accent)}
+.day h4{margin:0 0 7px;font-size:.84rem;font-weight:650;color:var(--ink);cursor:pointer}
+.day h4:hover{color:var(--accent-2)}
+.entry{
+  background:#fafaf9;border-radius:10px;padding:8px 10px;margin-top:6px;
+  font-size:.78rem;position:relative;border:1px solid var(--line);
+}
+.entry b{color:var(--ink);font-weight:650}
+.entry .x{
+  position:absolute;right:5px;top:3px;border:0;background:transparent;
+  color:var(--muted);cursor:pointer;font-size:15px;line-height:1;
+  padding:3px 5px;border-radius:6px;opacity:.65;
+}
+.entry .x:hover{opacity:1;background:var(--warn-soft);color:var(--warn)}
+form.log{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
+  gap:12px;align-items:end;
+}
+label{
+  font-size:.72rem;font-weight:600;color:var(--muted);
+  display:flex;flex-direction:column;gap:5px;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+input,select,textarea{
+  font:inherit;font-size:.875rem;font-weight:500;
+  padding:10px 12px;border:1.5px solid var(--line);
+  border-radius:11px;background:#fff;color:var(--ink);
+  transition:border-color .15s,box-shadow .15s;outline:none;
+  text-transform:none;letter-spacing:0;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3.5px rgba(13,148,136,.15);
+}
+textarea{
+  width:100%;min-height:148px;
+  font-family:ui-monospace,"SF Mono",Consolas,monospace;
+  font-size:.8rem;line-height:1.55;resize:vertical;
+}
+.btn{
+  appearance:none;border:0;font-family:inherit;
+  background:var(--primary);color:#fff;
+  border-radius:12px;padding:11px 18px;
+  font-size:.875rem;font-weight:600;cursor:pointer;
+  transition:transform .12s,background .15s,box-shadow .15s;
+  box-shadow:0 1px 2px rgba(0,0,0,.12);
+}
+.btn:hover{background:#0c0a09}
+.btn:active{transform:scale(.97)}
+.btn.alt{background:var(--warn-soft);color:#be123c;box-shadow:none}
+.btn.alt:hover{background:#fecdd3}
+.btn.ghost{background:var(--accent-soft);color:var(--accent-2);box-shadow:none}
+.btn.ghost:hover{background:#99f6e4}
+.btn.danger{background:var(--warn-soft);color:#be123c;box-shadow:none}
+.btn.danger:hover{background:#fecdd3}
+.chk{
+  display:flex;align-items:center;gap:10px;
+  font-size:.875rem;padding:10px 0;border-bottom:1px solid var(--line);
+}
+.chk:last-of-type{border-bottom:0}
+.chk input{width:18px;height:18px;accent-color:var(--accent);flex-shrink:0;cursor:pointer}
+.chk.done span{text-decoration:line-through;color:var(--muted);opacity:.7}
+h2{font-size:1rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin:26px 0 12px}
+.section{margin-top:16px}
+.hint{font-size:.8rem;color:var(--muted);margin:8px 0;line-height:1.5}
+.opt{
+  display:block;width:100%;text-align:left;
+  margin:8px 0;padding:13px 15px;
+  border:1.5px solid var(--line);border-radius:13px;
+  background:#fff;font:inherit;font-size:.875rem;font-weight:500;
+  cursor:pointer;color:var(--ink);font-family:inherit;transition:all .15s;
+}
+.opt:hover{border-color:var(--accent);background:#f0fdfa;box-shadow:0 2px 10px rgba(13,148,136,.08)}
+.opt.good{background:#d1fae5;border-color:#6ee7b7;color:#065f46}
+.opt.bad{background:#ffe4e6;border-color:#fda4af;color:#9f1239}
+pre{
+  background:#1c1917;color:#e7e5e4;border:0;border-radius:14px;
+  padding:14px 16px;font-size:.8rem;overflow-x:auto;white-space:pre;line-height:1.6;
+}
+ul{margin:6px 0 0;padding-left:1.2rem;font-size:.875rem;line-height:1.7;color:var(--ink-2)}
+@media (max-width:540px){
+  .topbar-inner{padding:14px 14px 0}
+  .brand h1{font-size:1.1rem}
+  main{padding:16px 12px 40px}
+  .card{padding:15px;border-radius:16px}
+  form.log{grid-template-columns:1fr}
+  nav button{padding:7px 12px;font-size:.78rem}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div>
+        <h1>Ôn thi HK1 2026–2027</h1>
+        <p class="sub">Lịch 18/11 – 08/12 · 7 môn · 62 chương</p>
+      </div>
+      <span class="pill-date">18/11 → 08/12</span>
+    </div>
+    <nav>
+      <button data-tab="overview" class="on" onclick="setTab('overview')">Tổng quan</button>
+      <button data-tab="days" onclick="setTab('days')">Lịch</button>
+      <button data-tab="subjects" onclick="setTab('subjects')">Môn học</button>
+      <button data-tab="quiz" onclick="setTab('quiz')">Luyện đề</button>
+      <button data-tab="webcode" onclick="setTab('webcode')">Thiết kế WEB</button>
+      <button data-tab="backup" onclick="setTab('backup')">Sao lưu</button>
+    </nav>
+  </div>
+</header>
+<main id="view"></main>
+
+<script>
+const KEY = 'ontap-hk1-v1';
+const WD = ['CN','T2','T3','T4','T5','T6','T7'];
+const TYPES = [['study','Học chương'],['quiz','Trắc nghiệm'],['essay','Tự luận'],['code','Code Web'],['mock','Thi thử']];
+const chs = n => Array.from({length:n}, (_,i) => 'Chương ' + (i+1));
+
+const WEB_CH = ['Chương 1: Tổng quan về thiết kế Web và lập trình Web','Chương 2: Ngôn ngữ đánh dấu văn bản HTML','Chương 3: Định dạng phong cách Web với CSS','Chương 4: Thiết kế bố cục Web và Web đáp ứng','Chương 5: Ngôn ngữ Javascript'];
+const SUBJECTS = [
+  {id:'web', name:'Thiết kế WEB', exam:'2026-11-26', time:'07:00', form:'Viết code trên web trường', ch:WEB_CH},
+  {id:'en',  name:'Tiếng Anh ngành Marketing', exam:'2026-11-29', time:'13:00', form:'Trắc nghiệm', ch:chs(11)},
+  {id:'dv',  name:'Marketing dịch vụ', exam:'2026-12-02', time:'07:00', form:'Tự luận (thi online)', ch:chs(11)},
+  {id:'ds',  name:'Khoa học dữ liệu', exam:'2026-12-05', time:'07:00', form:'Trắc nghiệm', ch:chs(12)},
+  {id:'bh',  name:'Kỹ năng bán hàng & QT bán hàng', exam:'2026-12-07', time:'07:00', form:'Tự luận (thi online)',
+     ch:['Sale planning & road map','4 bước cuối sales planning road map','Quản trị lực lượng bán hàng','Logic xuyên suốt bài làm']},
+  {id:'mxh', name:'Marketing trên mạng xã hội', exam:'2026-12-08', time:'07:00', form:'Tự luận (thi online)', ch:chs(9)},
+  {id:'nc', name:'Nghiên cứu Marketing', exam:'2026-12-20', time:'13:00', form:'Trắc nghiệm', ch:chs(10)}
+];
+const SUBJ = Object.fromEntries(SUBJECTS.map(s => [s.id, s]));
+
+function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function vdate(k){const [y,m,d]=k.split('-');return d+'/'+m+'/'+y}
+const DAYS = [];
+for(let d=new Date(2026,10,18); d<=new Date(2026,11,8); d.setDate(d.getDate()+1)) DAYS.push(ymd(d));
+function dayLabel(k){const d=new Date(k+'T00:00');return WD[d.getDay()]+' '+vdate(k)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+
+let state = load() || {logs:[], done:{}};
+let ui = {tab:'overview', day: DAYS.includes(ymd(new Date())) ? ymd(new Date()) : DAYS[0]};
+
+function load(){try{const o=JSON.parse(localStorage.getItem(KEY));return o&&Array.isArray(o.logs)?o:null}catch(e){return null}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+
+function doneCount(s){return (state.done[s.id]||[]).length}
+function totals(){let d=0,t=0;SUBJECTS.forEach(s=>{d+=doneCount(s);t+=s.ch.length});return{d,t}}
+function avg(s){const sc=state.logs.filter(l=>l.subject===s.id&&l.score!=null).map(l=>+l.score);
+  return sc.length?(sc.reduce((a,b)=>a+b,0)/sc.length).toFixed(1):'—'}
+function daysLeft(s){const t=new Date();t.setHours(0,0,0,0);return Math.round((new Date(s.exam+'T00:00')-t)/864e5)}
+function bar(p){return '<div class="bar"><span style="width:'+p+'%"></span></div>'}
+
+function setTab(t){ui.tab=t;render()}
+function render(){
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.tab===ui.tab));
+  const V={overview:vOverview,days:vDays,subjects:vSubjects,quiz:vQuiz,backup:vBackup,webcode:vWeb};
+  document.getElementById('view').innerHTML = V[ui.tab]();
+  window.scrollTo(0,0);
+}
+
+function vOverview(){
+  const {d,t}=totals(), pct=Math.round(d/t*100);
+  const mins=state.logs.reduce((a,l)=>a+(+l.minutes||0),0);
+  const todayLogs=state.logs.filter(l=>l.date===ymd(new Date())).length;
+  let h=`<div class="grid">
+    <div class="card"><div class="meta">Tăng trưởng tổng</div><div class="stat">${d}/${t} chương</div>${bar(pct)}<div class="meta">${pct}% · còn ${t-d} chương</div></div>
+    <div class="card"><div class="meta">Tổng thời gian đã ghi</div><div class="stat">${(mins/60).toFixed(1)} giờ</div><div class="meta">${state.logs.length} buổi đã ghi</div></div>
+    <div class="card"><div class="meta">Hôm nay</div><div class="stat">${todayLogs} buổi</div><div class="meta">${ymd(new Date())===ymd(new Date())?'Ghi thêm ở tab Lịch':''}</div></div>
+  </div><h2>Tiến độ từng môn</h2><div class="grid">`;
+  [...SUBJECTS].sort((a,b)=>a.exam.localeCompare(b.exam)).forEach(s=>{
+    const dl=daysLeft(s), p=Math.round(doneCount(s)/s.ch.length*100);
+    h+=`<div class="card"><h3>${esc(s.name)}</h3>
+      <div class="meta"><span class="badge b-pink">${dl>=0?'Còn '+dl+' ngày':'Đã thi'}</span><span class="badge b-blue">${vdate(s.exam)} · ${s.time}</span><br>${esc(s.form)}</div>
+      ${bar(p)}<div class="row"><span>${doneCount(s)}/${s.ch.length} chương</span><span>Điểm TB: <b>${avg(s)}</b></span></div></div>`;
+  });
+  return h+'</div>';
+}
+
+function chOpts(sid,sel=''){
+  return '<option value="">Không rõ</option>'+(SUBJ[sid]?SUBJ[sid].ch.map((c,i)=>`<option value="${i}" ${String(i)===String(sel)?'selected':''}>${esc(c)}</option>`).join(''):'');
+}
+function vDays(){
+  const exams = SUBJECTS.filter(s=>s.exam);
+  let h=`<div class="card"><h3>Ghi buổi học / làm bài</h3>
+  <form class="log" onsubmit="return addLog(event)">
+    <label>Ngày<select name="date">${DAYS.map(k=>`<option value="${k}" ${k===ui.day?'selected':''}>${dayLabel(k)}</option>`).join('')}</select></label>
+    <label>Môn<select name="subject" onchange="document.getElementById('chSel').innerHTML=chOpts(this.value)">${SUBJECTS.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('')}</select></label>
+    <label>Hoạt động<select name="type">${TYPES.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select></label>
+    <label>Chương<select name="chapter" id="chSel">${chOpts(SUBJECTS[0].id)}</select></label>
+    <label>Điểm (0–10)<input name="score" type="number" min="0" max="10" step="0.25" placeholder="để trống nếu không chấm"></label>
+    <label>Số phút<input name="minutes" type="number" min="0" step="5" placeholder="VD: 50"></label>
+    <label style="grid-column:span 2">Ghi chú<input name="note" placeholder="VD: sai câu SQL join, làm đề thử 2"></label>
+    <label style="flex-direction:row;align-items:center;gap:6px"><input type="checkbox" name="mark" checked> Đánh dấu chương đã học</label>
+    <button class="btn" type="submit">Lưu</button>
+  </form></div>
+  <div class="hint">Hôm nay được tô hồng. Bấm tên ngày để chọn ngày ghi.</div>
+  <div class="days">`;
+  DAYS.forEach(k=>{
+    const ents=state.logs.filter(l=>l.date===k);
+    const ex=exams.filter(s=>s.exam===k);
+    const cls=[k===ymd(new Date())?'today':'', k===ui.day?'sel':''].join(' ');
+    h+=`<div class="day ${cls}"><h4 onclick="pickDay('${k}')">${dayLabel(k)}</h4>
+      ${ex.map(s=>`<span class="badge b-pink">THI ${esc(s.name)} ${s.time}</span>`).join('')}
+      ${ents.map(l=>{const s=SUBJ[l.subject];const tp=TYPES.find(t=>t[0]===l.type)[1];
+        const cn=l.chapter!==''&&s?' · '+esc(s.ch[+l.chapter]):'';
+        return `<div class="entry"><button class="x" onclick="delLog('${l.id}')">×</button><b>${esc(s?s.name:'')}</b><br>${tp}${cn}
+        ${l.score!=null?' · <b>'+l.score+'đ</b>':''}${l.minutes?' · '+l.minutes+' phút':''}${l.note?'<br><i>'+esc(l.note)+'</i>':''}</div>`}).join('')}
+    </div>`;
+  });
+  return h+'</div>';
+}
+function pickDay(k){ui.day=k;render()}
+
+function vSubjects(){
+  let h='';
+  SUBJECTS.forEach(s=>{
+    const done=state.done[s.id]||[];
+    h+=`<div class="card section"><h3>${esc(s.name)}</h3>
+    <div class="meta">${vdate(s.exam)} · ${s.time} · ${esc(s.form)} · Điểm TB: <b>${avg(s)}</b></div>
+    ${bar(Math.round(done.length/s.ch.length*100))}
+    ${s.ch.map((c,i)=>`<label class="chk ${done.includes(i)?'done':''}" style="flex-direction:row;font-size:14px;color:var(--ink)">
+      <input type="checkbox" ${done.includes(i)?'checked':''} onchange="toggleCh('${s.id}',${i})"><span>${esc(c)}</span></label>`).join('')}
+    <h2 style="font-size:14px">Lịch sử điểm</h2>
+    ${state.logs.filter(l=>l.subject===s.id&&l.score!=null).sort((a,b)=>a.date.localeCompare(b.date)).map(l=>
+      `<div class="meta">${dayLabel(l.date)} · ${TYPES.find(t=>t[0]===l.type)[1]} · <b>${l.score}đ</b>${l.note?' · '+esc(l.note):''}</div>`).join('')
+      || '<div class="meta">Chưa có điểm.</div>'}
+    </div>`;
+  });
+  return h;
+}
+function toggleCh(sid,i){
+  const arr=state.done[sid]||[];
+  const at=arr.indexOf(i); at>=0?arr.splice(at,1):arr.push(i);
+  state.done[sid]=arr; save(); render();
+}
+
+function vBackup(){
+  return `<div class="card"><h3>Sao lưu & khôi phục</h3>
+  <div class="hint">Dữ liệu chỉ nằm trên trình duyệt này. Hãy xuất file định kỳ, nhất là trước khi đổi máy hoặc xóa dữ liệu trình duyệt.</div>
+  <textarea id="json">${esc(JSON.stringify(state,null,2))}</textarea>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+    <button class="btn" onclick="exportJSON()">Tải file .json</button>
+    <button class="btn ghost" onclick="copyJSON()">Sao chép</button>
+    <button class="btn alt" onclick="importJSON()">Nhập từ ô trên</button>
+    <button class="btn danger" onclick="resetAll()">Xóa toàn bộ</button>
+  </div></div>`;
+}
+function exportJSON(){
+  const txt=JSON.stringify(state,null,2);
+  try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'application/json'}));
+    a.download='ontap-hk1-'+ymd(new Date())+'.json';a.click();}catch(e){alert('Trình xem này không cho tải file. Hãy dùng nút Sao chép.')}
+}
+function copyJSON(){
+  const t=document.getElementById('json').value;
+  navigator.clipboard?.writeText(t).then(()=>alert('Đã sao chép')).catch(()=>alert('Không sao chép được, hãy chọn và copy thủ công.'));
+}
+function importJSON(){
+  try{
+    const o=JSON.parse(document.getElementById('json').value);
+    if(!Array.isArray(o.logs)||typeof o.done!=='object'||o.done===null) throw new Error();
+    state=o; save(); render(); alert('Đã nhập dữ liệu');
+  }catch(e){alert('JSON không hợp lệ')}
+}
+function resetAll(){
+  if(confirm('Xóa toàn bộ tiến trình? Không thể hoàn tác.')){state={logs:[],done:{}};save();render()}
+}
+
+function addLog(e){
+  e.preventDefault();
+  const f=e.target, sc=f.score.value;
+  const log={id:uid(), date:f.date.value, subject:f.subject.value, type:f.type.value, chapter:f.chapter.value,
+    score: sc===''?null:Math.min(10,Math.max(0,+sc)), minutes:+f.minutes.value||0, note:f.note.value.trim()};
+  state.logs.push(log);
+  if(log.type==='study' && log.chapter!=='' && f.mark.checked){
+    const arr=state.done[log.subject]||[], idx=+log.chapter;
+    if(!arr.includes(idx)) arr.push(idx);
+    state.done[log.subject]=arr;
+  }
+  ui.day=log.date; save(); render(); return false;
+}
+function delLog(id){
+  if(!confirm('Xóa ghi chép này?')) return;
+  state.logs=state.logs.filter(l=>l.id!==id); save(); render();
+}
+
+let webSub = 'exam';
+const WEB_EXAMS = [
+ {id:'001', name:'Đề mẫu 001 – Movie Review', time:'75 phút · 100 điểm',
+  gen:['Thư mục Lop_STT_HoVaTen_MaDe, gồm cau1.html … cau5.html','Ảnh dùng https://placehold.co/600x400','Chỉ HTML, CSS, JS; không thư viện, framework','Màu theo bảng đề; có thể thêm đen, trắng, xám'],
+  qs:[
+   {t:'Câu 1 (2đ) – cau1.html: header, navigation, bài đánh giá phim', r:[
+     'Website tên “Movie Review”, logo là SVG nhúng code hoặc file .svg',
+     'Header dùng các thẻ phù hợp',
+     'Navigation dùng thẻ <a>, đặt phía trên header',
+     'Bài đánh giá phim có <h1>, <h2>, <blockquote>']},
+   {t:'Câu 2 (2đ) – cau2.html: 6 div.item và div.advert', r:[
+     '6 phần tử div có class “item” và 1 div có class “advert”',
+     'CSS .item có width, height, background-color',
+     'CSS .advert: width 100%, height 200px, border 2px solid, màu nền và màu viền khác .item']},
+   {t:'Câu 3 (2đ) – cau3.html: JSON 6 phim và vòng lặp while', r:[
+     'Chuỗi JSON có 6 phim, mỗi phim có tên, hình ảnh, mô tả, đánh giá',
+     'In các phim ra trang bằng vòng lặp while',
+     'Mỗi phim nằm trong một thẻ div']},
+   {t:'Câu 4 (2đ) – cau4.html: form đánh giá phim', r:[
+     'Form có họ tên, email, số điện thoại, tên phim, nội dung đánh giá',
+     'JavaScript kiểm tra dữ liệu trước khi submit',
+     'Responsive ở 414px, 1024px, 1440px']},
+   {t:'Câu 5 (2đ) – cau5.html: ghép thành website hoàn chỉnh', r:[
+     'Header và navigation của câu 1, có slogan dưới tên website',
+     'Navigation liên kết tới cau1.html – cau4.html',
+     '.advert đổi màu nền, màu viền và chữ in nghiêng khi hover',
+     '6 item do JS hiển thị, flexbox xếp 2 hàng, mỗi hàng 3 item',
+     'Đưa form câu 4 vào trang',
+     'Footer có họ tên, mã sinh viên, lớp']}
+  ]},
+ {id:'03', name:'Đề mẫu 03 – English Learning', time:'Chưa ghi thời gian',
+  gen:['Thư mục STT_HoVaTen_MaDe (VD 01_LeBaoAn_De3), gồm cau1.html … cau5.html','Chỉ HTML, CSS, JS; không thư viện, framework','Dùng bảng màu đề; có thể thêm đen, trắng, xám'],
+  qs:[
+   {t:'Câu 1 (2đ) – cau1.html: trang giới thiệu “English Learning”', r:[
+     'Logo là SVG nhúng code hoặc file .svg, header dùng thẻ phù hợp',
+     'Navigation dùng thẻ <div>, đặt dưới header',
+     'Bài giới thiệu một khóa học có <h2>, <img>, <strong>']},
+   {t:'Câu 2 (2đ) – cau2.html: 4 div.item và div.advert', r:[
+     '4 phần tử div có class “item” và 1 div có class “advert”',
+     'CSS .item có width, height, background-color',
+     'CSS .advert: width 100%, height 200px, border 2px solid, màu nền và màu viền khác .item']},
+   {t:'Câu 3 (2đ) – cau3.html: JSON 4 khóa học và vòng lặp while', r:[
+     'Chuỗi JSON có 4 khóa học, mỗi khóa có tên, mô tả, học phí, thời gian khai giảng',
+     'In các khóa học bằng vòng lặp while',
+     'Mỗi khóa nằm trong một thẻ div']},
+   {t:'Câu 4 (2đ) – cau4.html: form đăng ký khóa học', r:[
+     'Form có họ tên, email, số điện thoại, khóa học muốn đăng ký, thời gian ưu tiên học',
+     'JavaScript kiểm tra dữ liệu trước khi submit',
+     'Responsive ở 414px, 1024px, 1440px']},
+   {t:'Câu 5 (2đ) – cau5.html: ghép thành website hoàn chỉnh', r:[
+     'Header và navigation của câu 1, có slogan dưới tên website',
+     'Navigation liên kết tới cau1.html – cau4.html',
+     '.advert đổi màu nền, màu viền và chữ in nghiêng khi hover',
+     '4 item do JS hiển thị, flexbox xếp trên 1 hàng, căn giữa màn hình',
+     'Đưa form câu 4 vào trang']}
+  ]}
+];
+const WEB_THEORY = [
+ {
+  "t": "Chương 1: Tổng quan về thiết kế Web và lập trình Web",
+  "s": [
+   {
+    "h": "1.1 Website hoạt động như thế nào",
+    "p": [
+     "Trình duyệt (client) gửi yêu cầu HTTP/HTTPS tới máy chủ (server) qua một địa chỉ URL.",
+     "Máy chủ trả về tài liệu HTML; trình duyệt đọc HTML rồi tải thêm CSS, JavaScript, ảnh.",
+     "Mã phản hồi quan trọng: 200 (thành công), 404 (không tìm thấy), 500 (lỗi máy chủ)."
+    ],
+    "code": null
+   },
+   {
+    "h": "1.2 Frontend và backend",
+    "p": [
+     "Frontend là phần người dùng nhìn thấy và tương tác: HTML (cấu trúc), CSS (giao diện), JavaScript (hành vi).",
+     "Backend là phần xử lý dữ liệu, đăng nhập, lưu trữ trên máy chủ (ví dụ PHP, Node.js, Python).",
+     "Trang tĩnh có nội dung cố định; trang động được tạo theo dữ liệu tại thời điểm truy cập."
+    ],
+    "code": null
+   },
+   {
+    "h": "1.3 Quy trình thiết kế website",
+    "p": [
+     "Phân tích yêu cầu: đối tượng người dùng, mục tiêu, các trang cần có.",
+     "Phác thảo bố cục (wireframe) và chọn bảng màu, font chữ.",
+     "Viết HTML trước để có cấu trúc, sau đó CSS để định dạng, cuối cùng JavaScript để xử lý tương tác.",
+     "Kiểm thử trên nhiều kích thước màn hình và sửa lỗi trước khi nộp."
+    ],
+    "code": null
+   }
+  ]
+ },
+ {
+  "t": "Chương 2: Ngôn ngữ đánh dấu văn bản HTML",
+  "s": [
+   {
+    "h": "2.1 Cấu trúc một trang HTML",
+    "p": [
+     "<!DOCTYPE html> khai báo đây là HTML5; thuộc tính lang=\"vi\" giúp trình duyệt nhận biết ngôn ngữ.",
+     "<head> chứa meta charset UTF-8 (để hiển thị tiếng Việt đúng), title và liên kết CSS/JS.",
+     "<body> chứa toàn bộ nội dung hiển thị."
+    ],
+    "code": "<!DOCTYPE html>\n<html lang=\"vi\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Movie Review</title>\n</head>\n<body>\n  <h1>Movie Review</h1>\n</body>\n</html>"
+   },
+   {
+    "h": "2.2 Văn bản, liên kết và ảnh",
+    "p": [
+     "Tiêu đề h1 đến h6: h1 là tiêu đề chính, mỗi trang nên có đúng một h1.",
+     "p là đoạn văn; strong nhấn mạnh (in đậm về ngữ nghĩa); em nhấn mạnh (in nghiêng về ngữ nghĩa).",
+     "a href=\"...\" tạo liên kết; img src=\"...\" alt=\"...\" hiển thị ảnh, alt mô tả ảnh khi ảnh không tải được.",
+     "blockquote dùng cho trích dẫn nguyên văn."
+    ],
+    "code": "<h2>Đánh giá phim</h2>\n<p>Phim <strong>rất hay</strong>, diễn xuất ổn.</p>\n<img src=\"https://placehold.co/600x400\" alt=\"Poster phim\">\n<blockquote>Một bộ phim đáng xem.</blockquote>\n<a href=\"cau2.html\">Sang câu 2</a>"
+   },
+   {
+    "h": "2.3 Thẻ ngữ nghĩa, danh sách và khối",
+    "p": [
+     "header, nav, main, article, section, footer giúp trang có cấu trúc rõ ràng cho cả người và máy đọc.",
+     "ul (không thứ tự) và ol (có thứ tự) chứa các li.",
+     "div là khối không có ý nghĩa ngữ nghĩa, dùng để nhóm phần tử và gắn class; span là khối nội tuyến trong dòng chữ."
+    ],
+    "code": "<header>\n  <h1>Movie Review</h1>\n</header>\n<nav>\n  <a href=\"#\">Trang chủ</a>\n  <a href=\"#\">Đánh giá</a>\n</nav>\n<div class=\"item\">Phim 1</div>"
+   },
+   {
+    "h": "2.4 Form",
+    "p": [
+     "form chứa các trường nhập; input có type (text, email, tel), id để JavaScript truy cập, placeholder gợi ý.",
+     "select và option tạo danh sách chọn; textarea cho nội dung nhiều dòng; button type=\"submit\" gửi form.",
+     "Thuộc tính required bắt buộc nhập, nhưng nên kiểm tra thêm bằng JavaScript như đề yêu cầu."
+    ],
+    "code": "<form id=\"formDanhGia\">\n  <input type=\"text\" id=\"ten\" placeholder=\"Họ và tên\" required>\n  <input type=\"email\" id=\"email\" placeholder=\"Email\" required>\n  <input type=\"tel\" id=\"sdt\" placeholder=\"Số điện thoại\" required>\n  <textarea id=\"noidung\" placeholder=\"Nội dung\"></textarea>\n  <button type=\"submit\">Gửi</button>\n</form>"
+   }
+  ]
+ },
+ {
+  "t": "Chương 3: Định dạng phong cách Web với CSS",
+  "s": [
+   {
+    "h": "3.1 Cú pháp và cách nhúng CSS",
+    "p": [
+     "Cú pháp: selector { thuộc-tính: giá-trị; }.",
+     "Inline: thuộc tính style trên thẻ. Internal: thẻ style trong head. External: file .css liên kết bằng link (tốt nhất cho dự án lớn).",
+     "Đề thi thường yêu cầu viết CSS trong thẻ style của cùng file HTML."
+    ],
+    "code": ".item {\n  width: 200px;\n  height: 150px;\n  background-color: #ffe700;\n}"
+   },
+   {
+    "h": "3.2 Selector và độ ưu tiên",
+    "p": [
+     "Thẻ (div), class (.item), id (#menu), con (nav a), trạng thái (a:hover).",
+     "Độ ưu tiên tăng dần: thẻ < class < id < inline style. Khi cùng độ ưu tiên, khai báo sau sẽ thắng.",
+     "Nên dùng class để tái sử dụng, hạn chế id cho phần tử duy nhất."
+    ],
+    "code": "nav a { color: white; text-decoration: none; }\n.advert:hover { background-color: #ffe700; }"
+   },
+   {
+    "h": "3.3 Box model",
+    "p": [
+     "Mỗi phần tử gồm content (nội dung), padding (đệm bên trong), border (viền), margin (cách bên ngoài).",
+     "box-sizing: border-box làm width/height bao gồm padding và border, giúp tính kích thước dễ hơn.",
+     "border: 2px solid #2fcbff gồm độ dày, kiểu nét và màu viền."
+    ],
+    "code": "* { box-sizing: border-box; }\n.advert {\n  width: 100%;\n  height: 200px;\n  border: 2px solid #2fcbff;\n  padding: 10px;\n}"
+   },
+   {
+    "h": "3.4 Chữ, màu và hiệu ứng",
+    "p": [
+     "font-family, font-size, font-weight, font-style (italic), text-align, line-height.",
+     "color cho chữ, background-color cho nền.",
+     "transition giúp thay đổi màu mượt khi di chuột; :hover áp dụng khi chuột đứng trên phần tử."
+    ],
+    "code": ".advert {\n  transition: all 0.3s ease;\n}\n.advert:hover {\n  background-color: #ffe700;\n  border-color: #00e56b;\n  font-style: italic;\n}"
+   }
+  ]
+ },
+ {
+  "t": "Chương 4: Thiết kế bố cục Web và Web đáp ứng",
+  "s": [
+   {
+    "h": "4.1 Flexbox",
+    "p": [
+     "display: flex đặt các phần tử con trên một hàng; justify-content căn theo chiều ngang, align-items căn theo chiều dọc.",
+     "flex-wrap: wrap cho phép xuống hàng; gap tạo khoảng cách giữa các phần tử.",
+     "Để có 2 hàng × 3 item: width của mỗi item là calc((100% - 2 × gap) / 3)."
+    ],
+    "code": ".items {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 10px;\n}\n.item {\n  width: calc((100% - 20px) / 3);\n}"
+   },
+   {
+    "h": "4.2 Grid",
+    "p": [
+     "display: grid và grid-template-columns chia cột; repeat(3, 1fr) tạo 3 cột bằng nhau.",
+     "Grid phù hợp bố cục hai chiều (hàng và cột); flexbox phù hợp bố cục một chiều."
+    ],
+    "code": ".items {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px;\n}"
+   },
+   {
+    "h": "4.3 Web đáp ứng (responsive)",
+    "p": [
+     "Thẻ meta viewport giúp trang co theo chiều rộng màn hình điện thoại.",
+     "Media query đổi CSS theo kích thước: max-width, min-width. Ba mốc của đề: 414px (điện thoại), 1024px (máy tính bảng), 1440px (máy tính).",
+     "Mobile-first: viết CSS cho màn hình nhỏ trước, rồi thêm min-width cho màn lớn."
+    ],
+    "code": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n@media (max-width: 414px) { form { background-color: #ffe700; } }\n@media (min-width: 415px) and (max-width: 1024px) { form { background-color: #00e56b; } }\n@media (min-width: 1025px) { form { background-color: #2fcbff; } }"
+   },
+   {
+    "h": "4.4 Đơn vị đo",
+    "p": [
+     "px là kích thước cố định; % theo phần tử cha; em và rem theo cỡ chữ; vw và vh theo kích thước khung nhìn.",
+     "Dùng % hoặc vw cho chiều rộng linh hoạt; dùng px cho chiều cao cố định như đề yêu cầu (200px)."
+    ],
+    "code": null
+   }
+  ]
+ },
+ {
+  "t": "Chương 5: Ngôn ngữ JavaScript",
+  "s": [
+   {
+    "h": "5.1 Biến, kiểu dữ liệu, mảng và object",
+    "p": [
+     "let cho biến có thể đổi giá trị; const cho hằng (không gán lại).",
+     "Kiểu dữ liệu: number, string, boolean; mảng [] dùng chỉ số bắt đầu từ 0; object {} dùng cặp khóa-giá trị."
+    ],
+    "code": "const phim = { ten: 'Mai', danhGia: 8 };\nconst danhSach = [phim, { ten: 'Dune', danhGia: 9 }];\nconsole.log(danhSach[0].ten); // Mai"
+   },
+   {
+    "h": "5.2 JSON",
+    "p": [
+     "JSON là chuỗi biểu diễn dữ liệu dạng object/mảng, khóa phải nằm trong dấu nháy kép.",
+     "JSON.parse(chuoi) chuyển chuỗi thành object; JSON.stringify(obj) chuyển object thành chuỗi.",
+     "Đề yêu cầu chuỗi JSON chứa 6 phim (hoặc 4 khóa học) với các thuộc tính rõ ràng."
+    ],
+    "code": "const chuoi = '[{\"ten\":\"Mai\",\"danhGia\":8}]';\nconst phims = JSON.parse(chuoi);"
+   },
+   {
+    "h": "5.3 Vòng lặp while",
+    "p": [
+     "while (điều kiện) { ... } lặp khi điều kiện còn đúng; phải tăng biến đếm để không lặp vô hạn.",
+     "Mẫu chuẩn khi in danh sách: khai báo i = 0, lặp while (i < mảng.length), trong vòng lặp xử lý phần tử i rồi i++."
+    ],
+    "code": "let i = 0;\nwhile (i < phims.length) {\n  // xử lý phims[i]\n  i++;\n}"
+   },
+   {
+    "h": "5.4 Thao tác DOM",
+    "p": [
+     "document.getElementById('id') lấy phần tử theo id; createElement('div') tạo phần tử mới.",
+     "innerHTML gán nội dung HTML; className hoặc classList gán class; appendChild thêm phần tử vào cuối.",
+     "Kết hợp với while để tạo mỗi phim thành một thẻ div và đưa vào trang."
+    ],
+    "code": "const box = document.getElementById('items');\nconst div = document.createElement('div');\ndiv.className = 'item';\ndiv.innerHTML = '<h4>' + phims[i].ten + '</h4>';\nbox.appendChild(div);"
+   },
+   {
+    "h": "5.5 Sự kiện và kiểm tra dữ liệu form",
+    "p": [
+     "addEventListener('submit', hàm) chạy khi người dùng bấm gửi form.",
+     "e.preventDefault() chặn việc gửi form khi dữ liệu chưa hợp lệ.",
+     "Kiểm tra rỗng bằng !value; kiểm tra email và số điện thoại bằng biểu thức chính quy (regex)."
+    ],
+    "code": "document.getElementById('formDanhGia').addEventListener('submit', function(e) {\n  const email = document.getElementById('email').value;\n  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {\n    alert('Email không hợp lệ');\n    e.preventDefault();\n  }\n});"
+   }
+  ]
+ }
+];
+
+const WEB_THEORY_EXTRA = [
+ [
+  {h:'1.4 Lịch sử Internet và World Wide Web', p:['ARPANET (1969) của Bộ Quốc phòng Mỹ là tiền thân của Internet; Internet là mạng kết nối máy tính toàn cầu dùng bộ giao thức TCP/IP.','Năm 1989, Tim Berners-Lee đề xuất World Wide Web và ngôn ngữ HTML; ngày 25/12/1990 ông viết trình duyệt và web server đầu tiên.','Việt Nam chính thức kết nối Internet năm 1997.','Website là bộ mặt của doanh nghiệp trên Internet: hoạt động 24/7, tiếp cận khách hàng toàn cầu, tiết kiệm chi phí và chăm sóc khách hàng tốt hơn.'], code:null},
+  {h:'1.5 Mạng máy tính và địa chỉ IP', p:['LAN (mạng cục bộ) kết nối các máy trong phạm vi gần; WAN (mạng diện rộng) gồm nhiều LAN; Internet là tập hợp các WAN nối với nhau qua các điểm trao đổi IXP.','ISP là nhà cung cấp dịch vụ truy cập Internet.','Địa chỉ IPv4 dài 32 bit, chia thành 4 octet dạng x.y.z.t, mỗi số từ 0 đến 255.'], code:null},
+  {h:'1.6 Website tĩnh, website động và công cụ phát triển', p:['Website tĩnh: nội dung cố định, xây dựng bằng HTML/CSS/JavaScript ở phía client.','Website động: nội dung lấy từ cơ sở dữ liệu và xử lý ở server (PHP, ASP.NET, JSP, Node.js…).','Công cụ: trình soạn thảo (Notepad++, Visual Studio Code, Adobe Dreamweaver) và Developer Tools (F12) trên trình duyệt để kiểm tra lỗi.','Vấn đề khi thiết kế: tương thích nhiều trình duyệt, hiển thị trên nhiều thiết bị, tốc độ tải, an toàn thông tin và khả năng truy cập.'], code:null}
+ ],
+ [
+  {h:'2.5 Chú thích và phần tử HTML', p:['Chú thích HTML viết trong <!-- ... --> và không hiển thị trên trang.','Phần tử gồm thẻ mở, nội dung và thẻ đóng; các thẻ rỗng như img, br, input, hr không cần thẻ đóng.','Phần tử khối (div, p, h1–h6, ul, table) bắt đầu một dòng mới; phần tử nội tuyến (span, a, img, strong) chỉ chiếm vừa nội dung của nó.'], code:'<!-- Đây là chú thích -->\n<p>Đoạn văn <span>nội tuyến</span></p>'},
+  {h:'2.6 Thẻ ngữ nghĩa', p:['header (đầu trang), nav (điều hướng), main (nội dung chính), section (một phần), article (bài độc lập), aside (nội dung phụ như sidebar), footer (chân trang).','details và summary tạo nội dung thu gọn, bấm để mở rộng.','Thẻ ngữ nghĩa giúp trình duyệt, công cụ tìm kiếm và người đọc màn hình hiểu cấu trúc trang.'], code:'<header><h1>Movie Review</h1></header>\n<nav><a href="#">Trang chủ</a></nav>\n<main><article><h2>Đánh giá</h2></article></main>\n<footer>© 2026</footer>'},
+  {h:'2.7 Bảng (table)', p:['table tạo bảng; tr là hàng; th là ô tiêu đề; td là ô dữ liệu; caption là tiêu đề bảng.','colspan gộp ô theo cột, rowspan gộp ô theo hàng.'], code:'<table>\n  <tr><th>Phim</th><th>Điểm</th></tr>\n  <tr><td>Mai</td><td>8</td></tr>\n</table>'},
+  {h:'2.8 Form và các loại input', p:['input có type như text, email, tel, number, password, date, checkbox, radio, file.','label gắn với input qua thuộc tính for trùng với id, giúp bấm vào nhãn để chọn ô nhập.','select/option tạo danh sách chọn; textarea nhập nhiều dòng; button type="submit" gửi form.'], code:'<label for="email">Email</label>\n<input type="email" id="email" name="email" required>'}
+ ],
+ [
+  {h:'3.2 Cách chèn CSS', p:['External CSS: viết trong file .css và nạp bằng link rel="stylesheet"; phổ biến nhất vì dùng chung cho nhiều trang.','Internal CSS: đặt trong thẻ style ở head; chỉ áp dụng cho trang đó.','Inline CSS: đặt trong thuộc tính style của phần tử; ưu tiên cao nhất nhưng khó bảo trì.'], code:'<link rel="stylesheet" href="style.css">\n<style>p { color: red; }</style>\n<p style="color: blue;">Đoạn văn</p>'},
+  {h:'3.3 Bộ chọn (Selector)', p:['Bộ chọn theo thẻ: p chọn mọi thẻ p.','Bộ chọn class (.item) dùng được nhiều lần; bộ chọn id (#header) chỉ dùng một lần trong trang.','Bộ chọn con cháu: nav a chọn mọi thẻ a nằm trong nav; dấu phẩy nhóm nhiều bộ chọn.','Pseudo-class như :hover áp dụng khi rê chuột lên phần tử.'], code:'.item { width: 200px; background-color: #ccfbf1; }\n#header { text-align: center; }\n.advert:hover { background-color: #f43f5e; font-style: italic; }'},
+  {h:'3.4 Màu sắc và đơn vị', p:['Màu có thể viết bằng tên (red), mã hex (#0d9488), rgb(r, g, b) hoặc rgba(r, g, b, a) có độ trong suốt.','px là kích thước cố định; % và em/rem là tương đối; vw/vh theo kích thước khung nhìn.'], code:null},
+  {h:'3.5 Mô hình hộp (Box model)', p:['Mỗi phần tử gồm: content (nội dung), padding (đệm trong), border (viền), margin (cách ngoài).','box-sizing: border-box giúp width đã bao gồm padding và border.','Thuộc tính thường dùng: color, background-color, font-size, font-family, text-align, width, height, border, padding, margin.'], code:'.box {\n  width: 300px;\n  padding: 10px;\n  border: 2px solid #1c1917;\n  margin: 20px auto;\n}'}
+ ],
+ [
+  {h:'4.2 Float và clear', p:['float: left hoặc right đẩy phần tử sang trái hoặc phải; các phần tử sau sẽ bao quanh nó.','clear: both kết thúc vùng float để tránh vỡ bố cục.'], code:'.column { float: left; width: 33.33%; }\n.row::after { content: ""; display: table; clear: both; }'},
+  {h:'4.3 CSS Grid', p:['display: grid tạo lưới hai chiều gồm hàng và cột.','grid-template-columns định nghĩa số cột; repeat(3, 1fr) tạo 3 cột bằng nhau; gap tạo khoảng cách giữa các ô.'], code:'.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }'},
+  {h:'4.4 Flexbox', p:['display: flex xếp phần tử thành một hàng (row) hoặc một cột (column).','justify-content căn theo trục chính (center, space-between); align-items căn theo trục phụ.','flex-wrap: wrap cho phép xuống hàng; kết hợp width khoảng 33% để mỗi hàng có 3 phần tử.'], code:'.items { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }\n.items > .item { width: calc(33.33% - 12px); }'},
+  {h:'4.5 Thiết kế web đáp ứng (Responsive)', p:['Thẻ meta viewport giúp trang hiển thị đúng trên điện thoại: width=device-width, initial-scale=1.','Media query đổi bố cục theo độ rộng màn hình; có thể viết theo max-width (desktop-first) hoặc min-width (mobile-first).','Các mốc thường gặp trong đề: 414px (điện thoại), 1024px (máy tính bảng), 1440px (máy tính để bàn).'], code:'@media (max-width: 768px) {\n  .items > .item { width: 100%; }\n}'},
+  {h:'4.6 Framework CSS', p:['Framework như Bootstrap cung cấp sẵn lưới và thành phần giao diện; đề thi thường yêu cầu tự viết CSS, không dùng framework.'], code:null}
+ ],
+ [
+  {h:'5.6 Hàm, điều kiện và vòng lặp', p:['function tên(tham số) { ... } khai báo hàm; return trả về kết quả.','if/else kiểm tra điều kiện; for (let i = 0; i < n; i++) là vòng lặp có biến đếm; while lặp khi điều kiện còn đúng.'], code:'function tinhDiem(a, b) {\n  return (a + b) / 2;\n}\nif (tinhDiem(7, 9) >= 8) console.log("Tốt");'},
+  {h:'5.7 Truy cập DOM hiện đại', p:['querySelector("...") lấy phần tử đầu tiên khớp với CSS selector; querySelectorAll lấy tất cả.','textContent, innerHTML và value dùng để đọc hoặc ghi nội dung; classList.add/remove đổi class.'], code:'const btn = document.querySelector("#guiBtn");\nbtn.addEventListener("click", () => alert("Đã bấm"));'},
+  {h:'5.8 Sự kiện (Event)', p:['addEventListener("click" | "submit" | "mouseover", hàm) gắn xử lý sự kiện cho phần tử.','Thuộc tính sự kiện nội tuyến như onclick vẫn dùng được nhưng nên tránh trong mã lớn.'], code:null},
+  {h:'5.9 AJAX và fetch', p:['AJAX cho phép trang tải dữ liệu từ server mà không tải lại toàn bộ trang.','fetch(url) trả về Promise; dùng .then(res => res.json()) để lấy dữ liệu JSON.'], code:'fetch("data.json")\n  .then(res => res.json())\n  .then(data => console.log(data));'}
+ ]
+];
+WEB_THEORY.forEach((c,i)=>{ if(WEB_THEORY_EXTRA[i]) c.s.push(...WEB_THEORY_EXTRA[i]); });
+
+const WEB_THEORY_EXTRA2 = [
+ [
+  {h:'1.7 Checklist trước khi nộp bài thi', p:['Đặt đúng cấu trúc thư mục và tên file theo quy định của đề (ví dụ cau1.html … cau5.html).','Kiểm tra ảnh dùng đúng nguồn cho phép (ví dụ https://placehold.co/600x400) và không dùng thư viện, framework.','Mở từng trang bằng trình duyệt, bấm thử menu, form và kiểm tra thu nhỏ màn hình ở các mốc 414px, 1024px, 1440px.','Kiểm tra lại mã HTML, CSS, JS bằng cách mở Developer Tools (F12) để xem lỗi trong Console.'], code:null}
+ ],
+ [
+  {h:'2.9 Khung nội tuyến (iframe) và đa phương tiện', p:['iframe nhúng một trang khác vào trang hiện tại; nên có thuộc tính title để hỗ trợ người dùng đọc màn hình.','audio và video nhúng âm thanh, video bằng HTML5 mà không cần plugin; controls hiển thị thanh điều khiển.'], code:'<iframe src="https://example.com" title="Bản đồ" width="300" height="200"></iframe>\n<video controls width="320">\n  <source src="phim.mp4" type="video/mp4">\n</video>'}
+ ],
+ [
+  {h:'3.6 Thuộc tính CSS với liên kết', p:['Các trạng thái của liên kết: :link (chưa thăm), :visited (đã thăm), :hover (khi rê chuột), :active (khi đang bấm).','Thứ tự nên viết là :link → :visited → :hover → :active; viết sai thứ tự thì một số quy tắc không có tác dụng.','text-decoration: none bỏ gạch chân của liên kết.'], code:'a:link { color: #000000; }\na:visited { color: #006600; }\na:hover { color: #FFCC00; }\na:active { color: #FF00CC; }\na { text-decoration: none; }'},
+  {h:'3.6 Thuộc tính CSS với list, table và form', p:['list-style-type đổi kiểu ký hiệu (disc, circle, square, none); list-style-position xác định vị trí ký hiệu.','Với bảng: border-collapse: collapse gộp viền; đặt border và padding cho th, td.','Với form: định dạng input, select, textarea bằng width, padding, border, border-radius; dùng :focus để đổi màu khi đang nhập.'], code:'ul { list-style-type: square; }\ntable { border-collapse: collapse; }\ntd, th { border: 1px solid #ccc; padding: 8px; }\ninput:focus { border-color: #0d9488; outline: none; }'}
+ ],
+ [
+  {h:'5.10 Đối tượng Date, Math và String', p:['new Date() lấy ngày giờ hiện tại; toLocaleTimeString() hiển thị giờ theo địa phương; setInterval(hàm, 1000) chạy hàm mỗi giây.','Math.random() sinh số ngẫu nhiên từ 0 đến dưới 1; Math.floor() làm tròn xuống.','Chuỗi: length cho độ dài; toUpperCase(), toLowerCase(), trim(), split(), includes().'], code:'setInterval(() => console.log(new Date().toLocaleTimeString()), 1000);\nconst idx = Math.floor(Math.random() * 5);'},
+  {h:'5.11 AJAX với XMLHttpRequest', p:['Tạo đối tượng XMLHttpRequest, gán onreadystatechange, mở kết nối bằng open("GET", url, true) rồi gọi send().','Khi readyState == 4 và status == 200 thì dữ liệu đã có trong responseText.','JSON.parse(responseText) chuyển chuỗi JSON thành object JavaScript để hiển thị.'], code:'var xhr = new XMLHttpRequest();\nxhr.onreadystatechange = function() {\n  if (this.readyState == 4 && this.status == 200) {\n    var data = JSON.parse(this.responseText);\n  }\n};\nxhr.open("GET", "phims.json", true);\nxhr.send();'},
+  {h:'5.12 JSON.stringify và JSON.parse', p:['JSON.stringify(obj) biến object thành chuỗi JSON để gửi đi; JSON.parse(chuoi) làm ngược lại.'], code:'const obj = {name: "John", age: 30};\nconst chuoi = JSON.stringify(obj);\nconst lai = JSON.parse(chuoi);'}
+ ]
+];
+WEB_THEORY.forEach((c,i)=>{ if(WEB_THEORY_EXTRA2[i]) c.s.push(...WEB_THEORY_EXTRA2[i]); });
+
+function setWeb(s){webSub=s;render()}
+function webKey(eid,qi,ri){return eid+'|'+qi+'|'+ri}
+function toggleWeb(k){
+  state.webChecks=state.webChecks||{};
+  state.webChecks[k]=!state.webChecks[k];
+  save(); render();
+}
+function vWeb(){
+  const wc=state.webChecks||{};
+  let h=`<div class="card"><h3>Thiết kế WEB – thi code tự luận</h3>
+    <div class="hint">Thi bằng code, không có trắc nghiệm. Làm xong từng câu thì tick các yêu cầu để tự kiểm tra.</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+      <button class="btn ${webSub==='exam'?'':'ghost'}" onclick="setWeb('exam')">Đề code thực hành</button>
+      <button class="btn ${webSub==='theory'?'':'ghost'}" onclick="setWeb('theory')">Tổng hợp chương 1–5</button>
+    </div></div>`;
+  if(webSub==='theory'){
+    WEB_THEORY.forEach(c=>{
+      h+=`<div class="card section"><h3>${esc(c.t)}</h3>`;
+      c.s.forEach(x=>{
+        h+=`<h2 style="font-size:15px">${esc(x.h)}</h2><ul style="margin:6px 0 0;padding-left:20px;font-size:14px;line-height:1.7">${x.p.map(y=>`<li>${esc(y)}</li>`).join('')}</ul>`;
+        if(x.code) h+=`<pre style="background:#f5f5f4;color:#1c1917;border:1px solid #d6d3d1;border-radius:12px;padding:10px;font-size:12.5px;line-height:1.5;overflow-x:auto;white-space:pre;font-family:ui-monospace,Consolas,monospace">${esc(x.code)}</pre>`;
+      });
+      h+='</div>';
+    });
+    return h;
+  }
+  WEB_EXAMS.forEach(ex=>{
+    const all=ex.qs.reduce((a,q)=>a+q.r.length,0);
+    const got=ex.qs.reduce((a,q,qi)=>a+q.r.reduce((b,_,ri)=>b+(wc[webKey(ex.id,qi,ri)]?1:0),0),0);
+    h+=`<div class="card section"><h3>${esc(ex.name)}</h3>
+      <div class="meta">${esc(ex.time)} · 5 câu × 2 điểm · Đã tick ${got}/${all} yêu cầu</div>
+      ${bar(Math.round(got/all*100))}
+      <div class="meta"><b>Quy định chung:</b><br>${ex.gen.map(esc).join('<br>')}</div>`;
+    ex.qs.forEach((q,qi)=>{
+      h+=`<h2 style="font-size:14px">${esc(q.t)}</h2>`;
+      q.r.forEach((r,ri)=>{
+        const k=webKey(ex.id,qi,ri);
+        h+=`<label class="chk ${wc[k]?'done':''}" style="flex-direction:row;font-size:14px;color:var(--ink)">
+          <input type="checkbox" ${wc[k]?'checked':''} onchange="toggleWeb('${k}')"><span>${esc(r)}</span></label>`;
+      });
+    });
+    h+='</div>';
+  });
+  return h;
+}
+
+const QB={en:{0:[
+[`Which term refers to states of felt deprivation?`,[`Customer need`,`Wants`,`Demand`,`Exchange`],0],
+[`Human needs shaped by culture and individual personality are called:`,[`Demand`,`Wants`,`Market offerings`,`Exchange`],1],
+[`Human wants that are backed by buying power are called:`,[`Needs`,`Demand`,`Customer value`,`Market`],1],
+[`Some combination of products, services, information or experiences offered to satisfy a need is a:`,[`Market offering`,`Market segment`,`Exchange`,`Customer equity`],0],
+[`The act of obtaining a desired object from someone by offering something in return is:`,[`Consumerism`,`Exchange`,`Demand`,`Customer equity`],1],
+[`The set of all actual and potential buyers of a product or service is the:`,[`Market`,`Marketing`,`Customer`,`Demand`],0],
+[`The process of engaging customers, building relationships and creating value is called:`,[`Marketing`,`Selling`,`Advertising`,`Production`],0],
+[`The idea that customers favor products that are available and highly affordable is the:`,[`Product concept`,`Production concept`,`Selling concept`,`Societal marketing concept`],1],
+[`The idea that customers favor products with the most quality, features and performance is the:`,[`Production concept`,`Product concept`,`Selling concept`,`Marketing concept`],1],
+[`The idea that consumers will not buy enough unless the firm undertakes large-scale selling and promotion is the:`,[`Marketing concept`,`Selling concept`,`Production concept`,`Product concept`],1],
+[`A philosophy in which achieving organizational goals depends on knowing the needs and wants of target markets is the:`,[`Selling concept`,`Marketing concept`,`Product concept`,`Societal marketing concept`],1],
+[`The concept that considers consumers' long-run interests and society's long-run interests is the:`,[`Marketing concept`,`Societal marketing concept`,`Production concept`,`Selling concept`],1],
+[`The overall process of building and maintaining profitable customer relationships is:`,[`Customer relationship management`,`Consumerism`,`Marketing audit`,`Marketing mix`],0],
+[`The value of the entire stream of purchases a customer makes over a lifetime is:`,[`Customer equity`,`Customer lifetime value`,`Customer engagement`,`Customer-generated marketing`],1],
+[`The total combined customer lifetime values of all of a company's customers is:`,[`Customer lifetime value`,`Customer equity`,`Market share`,`Brand equity`],1],
+[`An organized movement of citizens and government agencies to improve buyers' rights is:`,[`Sustainable marketing`,`Consumerism`,`Marketing audit`,`Marketing control`],1],
+[`Socially and environmentally responsible marketing that preserves the ability of future generations to meet their needs is:`,[`Consumerism`,`Sustainable marketing`,`Production concept`,`Marketing control`],1],
+[`Brand exchanges created by consumers themselves are called:`,[`Customer-generated marketing`,`Customer engagement marketing`,`Marketing mix`,`Customer equity`],0],
+[`Making the brand a meaningful part of consumers' conversations and lives through continuous involvement is:`,[`Customer-generated marketing`,`Customer engagement marketing`,`Marketing audit`,`Marketing control`],1],
+[`A comprehensive, systematic, independent and periodic examination of a company's environment and strategies is a:`,[`Marketing audit`,`Marketing control`,`Marketing implementation`,`Marketing mix`],0],
+[`Turning marketing strategies and plans into marketing actions is called marketing:`,[`Audit`,`Control`,`Implementation`,`Strategy`],2],
+[`Measuring and evaluating results of marketing plans and taking corrective action is:`,[`Marketing control`,`Marketing mix`,`Marketing audit`,`Marketing strategy`],0],
+[`The set of tactical tools (product, price, place, promotion) that a firm blends is the:`,[`Marketing strategy`,`Marketing mix`,`Marketing audit`,`Customer equity`],1],
+[`The marketing logic by which the company hopes to create customer value and achieve profitable relationships is:`,[`Marketing mix`,`Marketing audit`,`Marketing control`,`Marketing strategy`],3],
+[`What is the Vietnamese meaning of 'customer perceived value'?`,[`Giá trị cảm nhận của khách hàng`,`Tổng chi phí của khách hàng`,`Giá trị vòng đời khách hàng`,`Sự hài lòng của nhân viên`],0],
+[`'Production concept' nghĩa là:`,[`Triết lí tập trung vào sản xuất`,`Triết lí tập trung vào sản phẩm`,`Triết lí tập trung vào bán hàng`,`Triết lí marketing đạo đức xã hội`],0],
+[`'Product concept' nghĩa là:`,[`Triết lí tập trung vào sản xuất`,`Triết lí tập trung vào sản phẩm`,`Triết lí tập trung vào bán hàng`,`Quản trị quan hệ khách hàng`],1],
+[`'Selling concept' nghĩa là:`,[`Triết lí tập trung vào bán hàng`,`Triết lí marketing`,`Triết lí sản xuất`,`Văn hóa tiêu dùng`],0],
+[`'Societal marketing concept' nghĩa là:`,[`Marketing đạo đức xã hội`,`Marketing trực tiếp`,`Marketing nội bộ`,`Marketing dịch vụ`],0],
+[`'Consumerism' nghĩa là:`,[`Phong trào bảo vệ quyền lợi người tiêu dùng`,`Chủ nghĩa tiêu dùng cá nhân`,`Tiếp thị tập trung vào sản phẩm`,`Quản trị bán hàng`],0],
+[`'Sustainable marketing' nghĩa là:`,[`Marketing bền vững`,`Marketing ngắn hạn`,`Marketing kỹ thuật số`,`Marketing quảng cáo`],0],
+[`'Market offering' nghĩa là:`,[`Sản phẩm chào bán`,`Thị trường mục tiêu`,`Phân khúc thị trường`,`Giá trị thương hiệu`],0],
+[`'Exchange' nghĩa là:`,[`Trao đổi`,`Phân phối`,`Cạnh tranh`,`Đầu tư`],0],
+[`'Customer equity' nghĩa là:`,[`Tài sản khách hàng`,`Tài sản thương hiệu`,`Vốn lưu động`,`Lợi nhuận ròng`],0],
+[`'Marketing control' nghĩa là:`,[`Kiểm soát marketing`,`Kiểm toán marketing`,`Thực thi marketing`,`Chiến lược marketing`],0],
+[`'Customer relationship management' nghĩa là:`,[`Quản trị quan hệ khách hàng`,`Quản trị chuỗi cung ứng`,`Quản trị nhân sự`,`Quản trị rủi ro`],0],
+[`Customer equity is the total combined customer lifetime values of all of the company's customers.`,[`True`,`False`],0],
+[`In customer-generated marketing, consumers play a bigger role in shaping their own brand experiences and those of others.`,[`True`,`False`],0],
+[`Sellers who focus on the specific product rather than the benefits it produces suffer from marketing myopia.`,[`True`,`False`],0],
+[`Wants are needs shaped by personal preferences, culture, or religion.`,[`True`,`False`],0],
+[`Customer-perceived value depends on the customer's assessment of benefits and costs of an offer relative to competing offers.`,[`True`,`False`],0],
+[`Price is the total expense a customer incurs to get the benefits from using a product.`,[`True`,`False`],1],
+[`The societal marketing concept considers consumers' long-run interests and society's long-run interests.`,[`True`,`False`],0],
+[`The production concept says consumers favor products that are widely available and affordable.`,[`True`,`False`],0],
+[`The selling concept says consumers will not buy enough unless the firm uses large-scale selling and promotion.`,[`True`,`False`],0],
+[`Customer lifetime value is the value of the entire stream of purchases a customer makes over a lifetime.`,[`True`,`False`],0],
+[`Consumerism is an organized movement that improves buyers' rights relative to sellers.`,[`True`,`False`],0],
+[`Sustainable marketing ignores future generations' needs in order to satisfy current consumers.`,[`True`,`False`],1],
+[`Customer engagement marketing makes the brand a meaningful part of consumers' lives.`,[`True`,`False`],0],
+[`A marketing audit is a periodic examination of a company's environment, objectives, and strategies.`,[`True`,`False`],0],
+[`Marketing implementation means measuring results and taking corrective action.`,[`True`,`False`],1],
+[`The marketing mix consists of product, price, place, and promotion.`,[`True`,`False`],0],
+[`The marketing concept says achieving organizational goals depends on delivering satisfaction better than competitors.`,[`True`,`False`],0],
+[`The product concept says consumers favor products that offer the most quality, features, and performance.`,[`True`,`False`],0],
+[`Customer relationship management is building profitable customer relationships by delivering superior value and satisfaction.`,[`True`,`False`],0],
+[`Customer equity is the value of one single customer's lifetime purchases.`,[`True`,`False`],1],
+[`The marketing manager's aim is to engage, keep, and grow target customers by creating, delivering, and communicating superior ___.`,[`products`,`market share`,`customer value`,`prices`],2],
+[`Customer value and ___ are key building blocks for developing and managing customer relationships.`,[`customer satisfaction`,`customer equity`,`loyalty cards`,`sales volume`],0],
+[`___ buy again and tell others about their good experiences.`,[`Competitors`,`Dissatisfied customers`,`Satisfied customers`,`Suppliers`],2],
+[`Marketing consists of actions taken to create, maintain, and grow desirable profitable ___.`,[`production lines`,`exchange relationships`,`sales agents`,`price lists`],1],
+[`Customer ___ is the total combined customer lifetime values of all the company's customers.`,[`perception`,`need`,`equity`,`wants`],2],
+[`___ are needs shaped by personal preferences, culture, or religion.`,[`Demands`,`Wants`,`Exchanges`,`Markets`],1],
+[`Human wants backed by buying power are called ___.`,[`need`,`offer`,`value`,`demand`],3],
+[`A ___ is the set of all actual and potential buyers of a product.`,[`exchange`,`market`,`offering`,`concept`],1],
+[`The ___ concept says consumers favor products that are available and highly affordable.`,[`product`,`selling`,`production`,`societal`],2],
+[`The ___ concept says consumers favor products with the most quality, features, and performance.`,[`production`,`marketing`,`product`,`selling`],2],
+[`Under the ___ concept, the firm must undertake large-scale selling and promotion.`,[`marketing`,`product`,`societal`,`selling`],3],
+[`___ marketing considers society's long-run interests.`,[`Selling`,`Production`,`Direct`,`Societal`],3],
+[`___ is the process of building and maintaining profitable customer relationships.`,[`Consumerism`,`Marketing audit`,`Customer relationship management`,`Marketing mix`],2],
+[`The four tactical tools of the ___ are product, price, place, and promotion.`,[`marketing audit`,`marketing control`,`customer equity`,`marketing mix`],3],
+[`A ___ examines a company's environment, objectives, and strategies periodically.`,[`marketing mix`,`marketing control`,`marketing audit`,`customer equity`],2],
+[`Turning strategies into actions is called marketing ___.`,[`control`,`mix`,`implementation`,`audit`],2],
+[`Measuring results and taking corrective action is called marketing ___.`,[`planning`,`implementation`,`audit`,`control`],3],
+[`___ is an organized movement of citizens and government agencies to protect buyers.`,[`Sustainability`,`Production`,`Engagement`,`Consumerism`],3],
+[`___ marketing involves brand exchanges created by consumers themselves.`,[`Production`,`Customer-generated`,`Direct`,`Selling`],1],
+[`Marketing is the process by which companies engage customers and create ___.`,[`sales force`,`budgets`,`products`,`customer value`],3],
+[`According to the production concept, consumers will favor products that are ___ and ___.`,[`available; affordable`,`satisfying; quality focused`,`advertised; affordable`,`in high demand; hard to find`],0],
+[`The art and science of choosing target markets and building profitable relationships with them is called ___.`,[`segmentation`,`selling`,`marketing management`,`positioning`],2],
+[`Which of the following involves adapting a firm to take advantage of opportunities in its constantly changing environment?`,[`short-range planning`,`annual planning`,`media planning`,`strategic planning`],3],
+[`Which phrase reflects the marketing concept?`,[`The supplier is king in the market`,`This is what I make, won't you please buy it`,`Marketing should be viewed as hunting, not gardening`,`This is what I want, won't you please make it`],3],
+[`A company whose main approach is heavy promotion to sell what it already makes is following which concept?`,[`Selling concept`,`Marketing concept`,`Societal concept`,`Production concept`],0],
+[`A company that first asks what customers need before designing products follows which concept?`,[`Marketing concept`,`Production concept`,`Product concept`,`Selling concept`],0],
+[`A firm that focuses mainly on continuously improving product features is following the ___ concept.`,[`societal`,`selling`,`production`,`product`],3],
+[`When marketers set low expectations for a market offering, the biggest risk they run is:`,[`failing to attract enough customers`,`disappointing loyal customers`,`decreasing customer satisfaction`,`incorrectly identifying a target market`],0],
+[`Which customer question is answered by a company's value proposition?`,[`Why should I buy your brand rather than a competitor's?`,`What are the costs of your brand?`,`What experience will I have?`,`How do I become a loyal consumer?`],0],
+[`Which measures the total value a firm gets from all its customer relationships?`,[`customer equity`,`market share`,`revenue per product`,`brand image`],0],
+[`A company checks whether its decisions serve consumers' and society's long-run interests. Which concept is it applying?`,[`societal marketing concept`,`selling concept`,`production concept`,`product concept`],0],
+[`Which best describes marketing?`,[`Only selling and advertising`,`Creating, delivering, and communicating customer value`,`Only producing goods efficiently`,`Only setting prices`],1],
+[`Which activity looks back at a company's environment and strategies and recommends action?`,[`marketing audit`,`marketing mix`,`marketing implementation`,`customer equity`],0],
+[`Customers who buy repeatedly and recommend a brand to others are best described as:`,[`satisfied customers`,`competitors`,`suppliers`,`intermediaries`],0],
+[`Marketing aims to create, maintain, and grow desirable, profitable ___.`,[`exchange relationships`,`production lines`,`sales agents`,`price lists`],0],
+[`Which is NOT one of the four Ps of the marketing mix?`,[`People`,`Product`,`Price`,`Place`],0],
+[`Which concept says firms should focus on continuous product improvements?`,[`Product concept`,`Selling concept`,`Societal concept`,`Production concept`],0],
+[`Which concept focuses on improving production and distribution efficiency?`,[`Production concept`,`Product concept`,`Selling concept`,`Marketing concept`],0],
+[`Which concept says organizational goals depend on knowing target market needs?`,[`Marketing concept`,`Production concept`,`Selling concept`,`Product concept`],0],
+[`Customer relationship management aims to build relationships by delivering:`,[`superior customer value and satisfaction`,`the lowest possible price`,`maximum production volume`,`the largest advertising budget`],0],
+[`Which activity measures results and takes corrective action?`,[`marketing control`,`marketing implementation`,`marketing audit`,`marketing strategy`],0],
+[`Which best describes a marketing strategy?`,[`The marketing logic to create customer value and profitable relationships`,`A list of products offered`,`The company's budget plan`,`The sales forecast`],0],
+[`Customer lifetime value focuses on:`,[`The value of the entire stream of purchases over a customer's lifetime`,`A single purchase`,`The company's total assets`,`Annual advertising spend`],0],
+[`Which element is NOT part of the marketing mix?`,[`customer equity`,`product`,`price`,`promotion`],0]
+],
+1:[
+[`A segment of the population selected for marketing research to represent the population as a whole is a:`,[`census`,`sample`,`population`,`questionnaire`],1],
+[`Every member of the population has a known and equal chance of selection. This describes:`,[`convenience sample`,`simple random sample`,`quota sample`,`focus group`],1],
+[`A method in which the researcher selects the easiest population members from which to obtain information is:`,[`simple random sample`,`convenience sample`,`stratified sample`,`observational research`],1],
+[`Personal interviewing with small groups discussed with a trained interviewer for a few hours is called:`,[`focus group interviewing`,`ethnographic research`,`experimental research`,`online panel`],0],
+[`Gathering primary data by observing relevant people, actions and situations is:`,[`observational research`,`focus group interviewing`,`causal research`,`survey research`],0],
+[`Explains why the research design is appropriate for achieving the research objectives:`,[`findings`,`methodology`,`data analysis`,`scale`],1],
+[`Statistical and/or qualitative consideration of data gathered by research is:`,[`methodology`,`findings`,`data analysis`,`mean`],2],
+[`Questions that provide answers easier to interpret and analyze are:`,[`open-ended questions`,`closed-ended questions`,`focus questions`,`ethnographic questions`],1],
+[`An average computed by summing the values of several observations and dividing by the number of observations is the:`,[`median`,`mean`,`mode`,`scale`],1],
+[`The part of a research report where the results of the study are reported in detail is the:`,[`methodology`,`findings`,`introduction`,`sample`],1],
+[`Collecting primary data through internet and mobile surveys, online focus groups and online panels is:`,[`online marketing research`,`causal research`,`ethnographic research`,`secondary research`],0],
+[`A form of observational research in which trained observers watch and interact with consumers in their natural environments is:`,[`experimental research`,`ethnographic research`,`descriptive research`,`causal research`],1],
+[`Giving different treatments to groups, controlling related factors and checking for differences in responses is:`,[`experimental research`,`ethnographic research`,`observational research`,`focus group`],0],
+[`A type of composite measure made of several items with a logical and empirical structure is a:`,[`sample`,`scale`,`questionnaire`,`mean`],1],
+[`A research instrument consisting of a series of questions to gather information from respondents is a:`,[`scale`,`sample`,`questionnaire`,`methodology`],2],
+[`Testing hypotheses about cause-and-effect relationships is the purpose of:`,[`exploratory research`,`causal research`,`descriptive research`,`observational research`],1],
+[`Systematic collection and analysis of publicly available information about consumers, competitors and developments in the marketing environment is:`,[`competitive intelligence`,`marketing intelligence`,`marketing data`,`customer intelligence`],1],
+[`'Observational research' nghĩa là:`,[`Nghiên cứu quan sát`,`Nghiên cứu thử nghiệm`,`Nghiên cứu nhân học`,`Nghiên cứu mô tả`],0],
+[`'Experimental research' nghĩa là:`,[`Nghiên cứu quan sát`,`Nghiên cứu nhân học`,`Nghiên cứu thử nghiệm`,`Nghiên cứu định lượng`],2],
+[`'Ethnographic research' nghĩa là:`,[`Nghiên cứu quan sát trong môi trường tự nhiên`,`Nghiên cứu thử nghiệm`,`Nghiên cứu mô tả`,`Nghiên cứu bằng bảng hỏi`],0],
+[`'Mean' trong nghiên cứu nghĩa là:`,[`Giá trị trung bình`,`Mẫu nghiên cứu`,`Phương pháp luận`,`Phát hiện nghiên cứu`],0],
+[`'Findings' trong báo cáo nghiên cứu nghĩa là:`,[`Phương pháp luận`,`Phát hiện/kết quả nghiên cứu`,`Phân tích dữ liệu`,`Thang đo`],1],
+[`'Sample' nghĩa là:`,[`Mẫu nghiên cứu`,`Bảng hỏi`,`Tổng thể`,`Phương pháp`],0],
+[`Causal research is used to test hypotheses about cause-and-effect relationships.`,[`True`,`False`],0],
+[`A convenience sample selects the easiest population members to obtain information from.`,[`True`,`False`],0],
+[`The hardest step in the research process is normally defining the problem and research objectives.`,[`True`,`False`],0],
+[`Marketing research must be conducted to have good information for making marketing decisions.`,[`True`,`False`],0],
+[`Descriptive research describes things such as market potential or consumer attitudes.`,[`True`,`False`],0],
+[`A questionnaire is a research instrument consisting of a series of questions for gathering information from respondents.`,[`True`,`False`],0],
+[`To create value for customers, marketers must first gain fresh, deep insights into what customers need and want.`,[`True`,`False`],0],
+[`Exploratory research is used to test cause-and-effect hypotheses.`,[`True`,`False`],1],
+[`A simple random sample gives some population members a higher chance of selection.`,[`True`,`False`],1],
+[`Closed-ended questions are harder to interpret and analyze than open-ended questions.`,[`True`,`False`],1],
+[`Focus group interviewing is conducted by mail with individuals working alone.`,[`True`,`False`],1],
+[`Observational research gathers primary data by observing people, actions and situations.`,[`True`,`False`],0],
+[`The mean is calculated by dividing the largest value by the number of observations.`,[`True`,`False`],1],
+[`Ethnographic research uses trained observers who watch consumers in their natural environments.`,[`True`,`False`],0],
+[`Experimental research involves controlling related factors and checking differences in group responses.`,[`True`,`False`],0],
+[`Online marketing research can use online panels and mobile surveys.`,[`True`,`False`],0],
+[`Secondary data is data gathered directly from respondents to address a specific question.`,[`True`,`False`],1],
+[`Primary data is information gathered directly from respondents to address the question at hand.`,[`True`,`False`],0],
+[`Marketing managers always have enough of the right information for decisions.`,[`True`,`False`],1],
+[`Marketing intelligence can come from publicly available sources such as competitors' promotions.`,[`True`,`False`],0],
+[`Causal research is one of the sources of competitive marketing intelligence.`,[`True`,`False`],1],
+[`A good MIS balances the information users would ___ against what they really ___ and what is ___.`,[`need: like: feasible`,`like to have: need: feasible to offer`,`like: can afford: needed`,`use: have to use: available`],1],
+[`The real value of a company's marketing research lies in the ___ of customer insights it provides.`,[`amount`,`quality`,`variety`,`speed`],1],
+[`___ data is data gathered directly from respondents to address a question at hand.`,[`Secondary`,`Primary`,`Internal`,`External`],1],
+[`___ data refers to data which is readily available.`,[`Preliminary`,`Secondary`,`Primary`,`Experimental`],1],
+[`The first step in marketing research is to ___.`,[`identify and define the problem`,`collect the data`,`analyze the data`,`develop the process for data collection`],0],
+[`Many managers are burdened by ___.`,[`data overload`,`too little time`,`too few staff`,`no budget`],0],
+[`Most managers ___ better information.`,[`need`,`do not need`,`reject`,`ignore`],0],
+[`Marketing research is used to identify market ___.`,[`opportunities`,`taxes`,`employees`,`licences`],0],
+[`Monitoring market ___ is one reason businesses use marketing research.`,[`performance`,`salaries`,`offices`,`suppliers`],0],
+[`A ___ sample gives every member of the population an equal chance of selection.`,[`simple random`,`convenience`,`judgment`,`quota`],0],
+[`A ___ is a segment of the population chosen for research to represent the whole.`,[`sample`,`scale`,`questionnaire`,`mean`],0],
+[`The ___ explains why the research design is appropriate for the research questions.`,[`methodology`,`findings`,`mean`,`scale`],0],
+[`___ research is used to describe market potential for a product.`,[`Descriptive`,`Causal`,`Experimental`,`Ethnographic`],0],
+[`The three components of a marketing information system are internal data, marketing research and ___.`,[`marketing intelligence`,`marketing decisions`,`sales reports only`,`external data only`],0],
+[`___ is not a method of primary data collection.`,[`Publication`,`Observation`,`Questionnaire`,`Interview`],0],
+[`Information from a source inside the company is called ___ data.`,[`internal`,`external`,`public`,`online`],0],
+[`Marketing ___ is the systematic collection of publicly available information about competitors.`,[`intelligence`,`research`,`audit`,`control`],0],
+[`___ is NOT a source of competitive marketing intelligence.`,[`Causal research`,`Suppliers`,`Resellers`,`Key customers`],0],
+[`___ research uses mobile surveys and online panels to collect primary data.`,[`Online marketing`,`Medical`,`Legal`,`Financial`],0],
+[`Ethnographic research is a form of ___ research.`,[`observational`,`experimental`,`causal`,`descriptive`],0],
+[`Which is NOT a reason businesses use marketing research?`,[`deciding how many staff to hire to manufacture the goods`,`solving marketing problems`,`monitoring market performance`,`identifying market opportunities`],0],
+[`Three basic components of a marketing information system are:`,[`external data, marketing research, marketing intelligence`,`internal data, marketing intelligence, marketing decisions`,`internal data, marketing research, marketing intelligence`],2],
+[`Which is a benefit of a marketing information system?`,[`It helps you understand what motivates people to buy a product`,`It gives information about customers' buying habits and wants`,`It helps you know more about competitors' actions`,`All of the above`],3],
+[`The process and methods used to gather information, analyze it and report findings about marketing is:`,[`Marketing Discovery`,`Advertising Selection`,`Survey Creation`,`Marketing Research`],3],
+[`Which is NOT a potential source of marketing intelligence?`,[`watching competitors' promotion activities`,`talking with purchasing agents`,`purchasing competitors' products`,`collecting primary data`],3],
+[`A colleague knows something is wrong but is unsure what to investigate. He is having trouble with the step that is often the hardest:`,[`defining the problem and research objectives`,`developing the research plan`,`determining a research approach`,`selecting a research agency`],0],
+[`The first step in marketing research is to:`,[`identify and define the problem`,`analyze and report the data`,`collect the data`,`develop the process for data collection`],0],
+[`Which is NOT a method of primary data collection?`,[`Publication`,`Observation`,`Questionnaire`,`Interview`],0],
+[`Data which is readily available is called:`,[`Preliminary`,`Secondary`,`Primary`],1],
+[`Which is NOT a source of competitive marketing intelligence?`,[`suppliers`,`resellers`,`key customers`,`causal research`],3],
+[`Causal research is used to:`,[`test hypotheses about cause-and-effect relationships`,`gather preliminary information that helps define problems`,`uncover information in an unstructured way`,`describe marketing problems or situations`],0],
+[`Which statement is NOT true regarding information for marketers?`,[`Many managers lack information of the right kind`,`Most managers do not need more information`,`Most managers need better information`,`Many managers are burdened by data overload`],1],
+[`Information gathered directly from respondents to address a specific question is:`,[`competitive marketing intelligence`,`experimental hypotheses`,`primary data`,`secondary data`],2],
+[`A company wants to know how a price change affects sales, so it tests two stores with different prices. Which research is this?`,[`causal (experimental) research`,`descriptive research`,`exploratory research`,`observational research`],0],
+[`A company wants to estimate the market potential for a new product. Which research fits best?`,[`descriptive research`,`causal research`,`ethnographic research`,`experimental research`],0],
+[`A researcher wants to understand why consumers buy, by watching shoppers in their natural environment. Which method fits?`,[`ethnographic research`,`mail questionnaire`,`secondary data review`,`telephone survey`],0],
+[`The real value of a company's marketing research and information system lies in:`,[`the amount of data it generates`,`the variety of contact methods it uses`,`the efficiency with which it completes studies`,`the quality of customer insights it provides`],3],
+[`Which step is often the hardest in the research process?`,[`developing the research plan`,`defining the problem and research objectives`,`choosing a research agency`,`collecting the data`],1],
+[`Which research is best for exploring unfamiliar issues before formal research?`,[`exploratory research`,`causal research`,`descriptive research`,`experimental research`],0],
+[`A researcher randomly selects customers from the database so each has an equal chance. This is a:`,[`simple random sample`,`convenience sample`,`judgment sample`,`quota sample`],0],
+[`A researcher surveys people who happen to walk past the store. This is a:`,[`convenience sample`,`simple random sample`,`stratified sample`,`cluster sample`],0],
+[`Which method uses small groups discussing a product with a trained interviewer?`,[`focus group interviewing`,`experimental research`,`causal research`,`descriptive survey`],0],
+[`Which type of question provides answers that are easier to interpret and analyze?`,[`closed-ended questions`,`open-ended questions`,`unstructured interviews`,`projective techniques`],0],
+[`The average obtained by summing observations and dividing by their number is the:`,[`mean`,`median`,`range`,`variance`],0],
+[`Where are the results of the study reported in detail?`,[`findings`,`methodology`,`research objectives`,`sampling plan`],0],
+[`Which term explains why the research design is appropriate for achieving research objectives?`,[`methodology`,`findings`,`data analysis`,`scale`],0],
+[`Monitoring competitors' performance and actions is part of:`,[`marketing intelligence`,`the marketing mix`,`a marketing audit`,`the product life cycle`],0],
+[`Which is NOT an online marketing research method?`,[`internet survey`,`online panel`,`consumer tracking`,`face-to-face interview in a store only`],3],
+[`In an experiment, researchers compare:`,[`groups given different treatments`,`observations in natural environments`,`answers to open questions`,`market potential estimates`],0],
+[`Which best describes a scale?`,[`a composite measure made of several related items`,`a single question`,`a sample selection method`,`a report section`],0],
+[`Which sampling method is a nonprobability sample?`,[`quota sample`,`simple random sample`,`stratified sample`,`cluster sample`],0],
+[`Causal research is most appropriate when the goal is to:`,[`determine whether X causes Y`,`list competitors`,`describe the population`,`explore new ideas`],0],
+[`A firm wants to know whether consumers prefer a new packaging design by testing different versions with groups. Which research fits?`,[`experimental research`,`exploratory research`,`secondary research`,`focus group only`],0],
+[`Which statement about marketing research is NOT true?`,[`It must be conducted to have good information for decisions`,`It can be used to define problems`,`It always removes all uncertainty`,`It helps identify opportunities`],2],
+[`Which best defines a questionnaire?`,[`a series of questions to gather information from respondents`,`a sample of the population`,`a statistical average`,`a list of competitors`],0]
+],
+2:[
+[`Firms that provide the resources needed by the company to produce goods or offer services are:`,[`marketing intermediaries`,`suppliers`,`the company`,`resellers`],1],
+[`Any group that has an actual or potential interest in or impact on an organization's ability to achieve its objectives is a:`,[`competitor`,`public`,`market`,`intermediary`],1],
+[`A company or individual that competes for trade with one's own company is a:`,[`supplier`,`competitor`,`public`,`reseller`],1],
+[`The group that influences the company's ability to obtain funds is:`,[`media publics`,`financial publics`,`government publics`,`citizen-action publics`],1],
+[`Groups that carry news, features and editorial opinions are:`,[`financial publics`,`media publics`,`government publics`,`local publics`],1],
+[`Groups with the ability to affect the company or its products through laws are:`,[`government publics`,`media publics`,`financial publics`,`local publics`],0],
+[`Organized groups with special interests who could question a company's actions are:`,[`citizen-action publics`,`media publics`,`financial publics`,`internal publics`],0],
+[`Companies that help to warehouse (store and protect goods) are:`,[`physical distribution firms`,`suppliers`,`competitors`,`media`],0],
+[`Forces that involve the physical environment and natural resources needed as inputs by marketers form the:`,[`natural environment`,`economic environment`,`cultural environment`,`demographic environment`],0],
+[`Basic beliefs about ourselves, other people and the world we live in are called:`,[`core beliefs`,`buyer decisions`,`social factors`,`marketing stimuli`],0],
+[`The actors and forces outside marketing that affect marketing management's ability to build and maintain relationships with target customers are the:`,[`micro-environment`,`marketing environment`,`marketing research`,`macro-environment`],1],
+[`Actors close to the company that affect its ability to serve customers (suppliers, intermediaries, customers, competitors, publics) form the:`,[`macroenvironment`,`microenvironment`,`demographic environment`,`global environment`],1],
+[`The study of human population in terms of size, density, location, age, gender and occupation is:`,[`demography`,`ecology`,`culture`,`economics`],0],
+[`Institutions and other forces that affect a society's basic values and perceptions form the:`,[`cultural environment`,`technological environment`,`ecological environment`,`economic environment`],0],
+[`Factors that affect consumer purchasing power and spending patterns form the:`,[`economic environment`,`cultural environment`,`natural environment`,`political environment`],0],
+[`Departments such as finance, HR, accounting and purchasing, which share responsibility for customer value, make up the:`,[`internal environment`,`external environment`,`macroenvironment`,`competitive environment`],0],
+[`Financial publics are:`,[`banks`,`environmentalists`,`householders`,`customers`],0],
+[`Firms that help the company promote, sell and distribute goods to final buyers are:`,[`marketing intermediaries`,`suppliers`,`competitors`,`publics`],0],
+[`A company or individual competing for the same customers is called a:`,[`competitor`,`supplier`,`public`,`intermediary`],0],
+[`Forces such as new inventions and technology belong to the:`,[`technological environment`,`natural environment`,`demographic environment`,`cultural environment`],0],
+[`Rules and laws that affect how businesses operate form the:`,[`political-legal environment`,`cultural environment`,`natural environment`,`technological environment`],0],
+[`Demographic, economic, natural, technological, political-legal and cultural forces that shape opportunities form the:`,[`macroenvironment`,`microenvironment`,`internal environment`,`competitive environment`],0],
+[`Marketing intermediaries are part of the:`,[`microenvironment`,`macroenvironment`,`internal environment`,`natural environment`],0],
+[`'Suppliers' nghĩa là:`,[`Nhà cung cấp`,`Đối thủ cạnh tranh`,`Trung gian marketing`,`Công chúng`],0],
+[`'Competitor' nghĩa là:`,[`Đối thủ cạnh tranh`,`Nhà cung cấp`,`Khách hàng`,`Công chúng`],0],
+[`'Financial publics' nghĩa là:`,[`Công chúng tài chính`,`Công chúng truyền thông`,`Công chúng chính phủ`,`Công chúng hành động công dân`],0],
+[`'Media publics' nghĩa là:`,[`Công chúng tài chính`,`Công chúng truyền thông`,`Công chúng chính phủ`,`Công chúng địa phương`],1],
+[`'Physical distribution firms' nghĩa là:`,[`Doanh nghiệp phân phối vật chất`,`Trung gian tài chính`,`Nhà bán lẻ`,`Đại lý quảng cáo`],0],
+[`'Natural environment' nghĩa là:`,[`Môi trường tự nhiên`,`Môi trường kinh tế`,`Môi trường văn hóa`,`Môi trường nhân khẩu`],0],
+[`'Citizen-action publics' nghĩa là:`,[`Công chúng hành động công dân`,`Công chúng tài chính`,`Công chúng nội bộ`,`Công chúng truyền thông`],0],
+[`'Core belief' nghĩa là:`,[`Niềm tin cốt lõi`,`Nhu cầu cốt lõi`,`Giá trị thương hiệu`,`Hành vi cốt lõi`],0],
+[`Suppliers form an important link in the company's overall customer value delivery network.`,[`True`,`False`],0],
+[`A competitor is a company or individual that competes for trade with one's own company.`,[`True`,`False`],0],
+[`Financial publics influence the company's ability to obtain funds.`,[`True`,`False`],0],
+[`Media publics include government regulators who make laws.`,[`True`,`False`],1],
+[`Government publics have the ability to affect the company through laws.`,[`True`,`False`],0],
+[`Citizen-action publics are organized groups who could question a company's actions.`,[`True`,`False`],0],
+[`Physical distribution firms help to warehouse and protect goods.`,[`True`,`False`],0],
+[`The natural environment includes natural resources needed as inputs by marketers.`,[`True`,`False`],0],
+[`Core beliefs are basic beliefs about ourselves, other people and the world we live in.`,[`True`,`False`],0],
+[`The microenvironment includes economic conditions that affect the whole nation.`,[`True`,`False`],1],
+[`The macroenvironment consists of demographic, economic, natural, technological, political-legal and cultural forces.`,[`True`,`False`],0],
+[`Demography is the study of human populations in terms of size, density, location, age and gender.`,[`True`,`False`],0],
+[`The economic environment includes factors that affect consumer purchasing power.`,[`True`,`False`],0],
+[`The internal environment includes departments such as finance and purchasing.`,[`True`,`False`],0],
+[`The company itself is part of the microenvironment.`,[`True`,`False`],0],
+[`Citizen-action publics always support a company's actions.`,[`True`,`False`],1],
+[`Physical distribution firms are a type of competitor.`,[`True`,`False`],1],
+[`The local community is one of the publics that can affect a company.`,[`True`,`False`],0],
+[`Demographic trends such as an aging population belong to the demographic environment.`,[`True`,`False`],0],
+[`New technology can change how newspapers are printed and delivered.`,[`True`,`False`],0],
+[`Firms that provide the resources needed to produce goods are called ___.`,[`marketing intermediaries`,`suppliers`,`resellers`,`publics`],1],
+[`The ___ consists of forces outside marketing that affect marketing management's ability to build relationships.`,[`marketing environment`,`marketing mix`,`marketing audit`,`customer equity`],0],
+[`___ is the study of human population in terms of size, density, age and gender.`,[`Demography`,`Ecology`,`Culture`,`Economics`],0],
+[`___ consists of actors close to the company, such as suppliers, intermediaries and customers.`,[`Microenvironment`,`Macroenvironment`,`Demography`,`Ecology`],0],
+[`___ consists of larger societal forces such as demographic, economic, natural, technological, political and cultural forces.`,[`Macroenvironment`,`Microenvironment`,`Internal environment`,`Competitive environment`],0],
+[`The ___ environment includes institutions and forces that affect a society's basic values and perceptions.`,[`cultural`,`economic`,`natural`,`technological`],0],
+[`The ___ environment includes factors that affect consumer purchasing power and spending patterns.`,[`economic`,`cultural`,`natural`,`political`],0],
+[`___ publics influence a company's ability to obtain funds.`,[`Financial`,`Media`,`Government`,`Citizen-action`],0],
+[`___ publics carry news, features and editorial opinions.`,[`Media`,`Financial`,`Government`,`Local`],0],
+[`___ publics can affect the company through laws.`,[`Government`,`Media`,`Financial`,`Local`],0],
+[`___ publics are organized groups with special interests who may question a company's actions.`,[`Citizen-action`,`Media`,`Financial`,`Internal`],0],
+[`___ firms help to warehouse and protect goods.`,[`Physical distribution`,`Financial`,`Media`,`Advertising`],0],
+[`The ___ environment includes natural resources needed as inputs by marketers.`,[`natural`,`cultural`,`economic`,`demographic`],0],
+[`___ are basic beliefs about ourselves, other people and the world we live in.`,[`Core beliefs`,`Marketing stimuli`,`Social factors`,`Opinion leaders`],0],
+[`The ___ of a company includes departments such as finance, HR, accounting and purchasing.`,[`internal environment`,`external environment`,`macroenvironment`,`competitive environment`],0],
+[`Companies that sell, promote and distribute goods to final buyers are called ___.`,[`marketing intermediaries`,`suppliers`,`competitors`,`publics`],0],
+[`A ___ is a company or individual that competes for trade with one's own company.`,[`competitor`,`supplier`,`public`,`intermediary`],0],
+[`___ environment covers new inventions and technologies.`,[`Technological`,`Natural`,`Cultural`,`Demographic`],0],
+[`Age and population shifts belong to the ___ environment.`,[`demographic`,`economic`,`natural`,`political`],0],
+[`A group that has an actual or potential interest in an organization's ability to achieve its objectives is called a ___.`,[`public`,`competitor`,`market`,`intermediary`],0],
+[`Which is NOT part of the microenvironment?`,[`The company`,`The economic environment`,`The customers`,`The suppliers and intermediaries`],1],
+[`Which is NOT one of the publics?`,[`the supplier`,`the local community`,`the government`,`the media`],0],
+[`Financial publics are:`,[`banks`,`environmentalists`,`householders`,`customers`],0],
+[`Local newspaper readers are moving online. Which environmental factor is most directly involved?`,[`economic, since few can afford a newspaper`,`competitive, from new small newspapers`,`technological, since printing presses changed`,`social, from changing consumer preferences for online information`],3],
+[`Demand for a magazine aimed at women aged 40 and over reflects changes in which characteristics?`,[`demographic`,`cultural`,`occupational`,`behavioral`],0],
+[`A hospital in an area with a fast-growing elderly population is most affected by which environment?`,[`demographic environment`,`natural environment`,`political environment`,`internal environment`],0],
+[`Which trend is most important for a hospital's five-year marketing plan?`,[`The number of people aged 65 or older in the area will increase by 23 percent in five years.`,`Robotics will play a major role in surgery by 2025.`,`Dual-income households are rising in the community.`,`Mutual funds are growing in the region.`],0],
+[`Which statement is true?`,[`The technological environment consists of institutions and forces that affect basic values.`,`The ecological environment consists of factors that affect purchasing power.`,`Demography is the study of human population in terms of size, density, location, age and gender.`,`None of the above.`],2],
+[`A citizen group challenges a firm's stand on a local environmental issue. Which public is this?`,[`citizen-action public`,`financial public`,`media public`,`government public`],0],
+[`A new law forces a factory to reduce pollution. Which public mainly affects this?`,[`government publics`,`financial publics`,`media publics`,`local publics`],0],
+[`A bank decides whether to lend money to the firm. Which public is this?`,[`financial publics`,`media publics`,`government publics`,`citizen-action publics`],0],
+[`A newspaper publishes an article on the company's product quality. Which public is this?`,[`media publics`,`financial publics`,`government publics`,`citizen-action publics`],0],
+[`Which is an example of a macroenvironment factor?`,[`economic growth`,`the company's sales team`,`the company's suppliers`,`the company's customers`],0],
+[`Which is an example of a microenvironment factor?`,[`customers`,`age structure of the population`,`technology trends`,`political laws`],0],
+[`Growing online shopping changes how companies sell. Which environment is this part of?`,[`technological environment`,`natural environment`,`cultural environment`,`economic environment`],0],
+[`Growing concern for recycling affects which environment?`,[`natural environment`,`technological environment`,`economic environment`,`demographic environment`],0],
+[`A new law requires companies to label product ingredients. Which environment is this?`,[`political-legal environment`,`cultural environment`,`natural environment`,`technological environment`],0],
+[`Consumers spend more on health products as incomes rise. Which environment is this?`,[`economic environment`,`cultural environment`,`natural environment`,`technological environment`],0],
+[`Vietnamese consumers prefer products tied to family and tradition. Which environment is this?`,[`cultural environment`,`economic environment`,`natural environment`,`technological environment`],0],
+[`Which of the following publics can help the company obtain funds?`,[`financial publics`,`media publics`,`citizen-action publics`,`local publics`],0],
+[`Which group shares responsibility for understanding customer needs inside the company?`,[`internal departments such as finance, HR and accounting`,`government agencies`,`the media`,`competitors`],0],
+[`Which is a competitor?`,[`a company that competes for the same customers`,`a supplier of raw materials`,`a distribution firm`,`a government agency`],0],
+[`Which is a physical distribution firm?`,[`a company that warehouses and moves goods`,`a bank`,`a newspaper`,`a regulator`],0],
+[`Which is a natural environment concern?`,[`shortage of raw materials`,`new computer software`,`celebrity endorsement`,`online payment systems`],0],
+[`Which factor is part of the cultural environment?`,[`values and attitudes toward health`,`interest rates`,`new technology`,`tax rates`],0],
+[`Which is part of the demographic environment?`,[`age, gender, family size and occupation`,`interest rates and exchange rates`,`inflation and unemployment`,`natural disasters`],0],
+[`Which is an economic environment factor?`,[`inflation rate`,`climate`,`volcanic eruptions`,`earthquakes`],0],
+[`Which is a political-legal factor?`,[`government regulation`,`changing fashions`,`natural disasters`,`new inventions`],0],
+[`Which is a technological factor?`,[`new mobile apps`,`population growth`,`customer loyalty`,`religion`],0],
+[`Which best describes the marketing environment?`,[`actors and forces outside marketing that affect the firm's ability to build customer relationships`,`the set of product lines the company sells`,`the company's annual budget`,`the list of current customers`],0]
+],
+3:[
+["Thị trường gồm cá nhân và hộ gia đình mua hàng hóa, dịch vụ để tiêu dùng cá nhân. Đây là thuật ngữ nào?", ["Consumer market", "Business market", "Reseller market", "Government market"], 0],
+["Những tầng lớp xã hội tương đối lâu dài, có thứ bậc, mà các thành viên chia sẻ giá trị, sở thích và hành vi tương tự. Đây là thuật ngữ nào?", ["Social class", "Social factors", "Reference group", "Subculture"], 0],
+["Ảnh hưởng từ lời nói và khuyến nghị của bạn bè, gia đình, người tiêu dùng khác lên hành vi mua. Đây là thuật ngữ nào?", ["Marketing stimuli", "Word-of-mouth influence", "Belief", "Opinion leader"], 1],
+["Người có địa vị xã hội cao và nhiều người theo dõi trong mạng xã hội của họ, thường được lắng nghe khi nói về sản phẩm. Đây là thuật ngữ nào?", ["Early adopter", "Opinion leader", "Influencer của doanh nghiệp", "Gatekeeper"], 1],
+["Một ý nghĩ mang tính mô tả mà một người nắm giữ về điều gì đó. Đây là thuật ngữ nào?", ["Belief", "Attitude", "Perception", "Motive"], 0],
+["Các yếu tố như tuổi, giai đoạn vòng đời có thể ảnh hưởng đến hành vi người mua. Đây là thuật ngữ nào?", ["Social factors", "Marketing stimuli", "Situational factors", "Adoption process"], 0],
+["Các sự kiện bất ngờ, ví dụ kinh tế xấu đi hoặc bạn bè phản hồi thất vọng, làm thay đổi ý định mua. Đây là thuật ngữ nào?", ["Situational factors", "Social factors", "Adoption process", "Buying center"], 0],
+["Quá trình tinh thần mà một cá nhân trải qua từ lần đầu nghe về một đổi mới đến khi chấp nhận hoàn toàn. Đây là thuật ngữ nào?", ["Adoption process", "Buyer decision process", "Buying center", "Trial"], 0],
+["Người tiêu dùng thử sản phẩm mới nhưng chưa có cam kết mua tiếp. Đây là giai đoạn nào trong adoption process?", ["Trial", "Evaluation", "Adoption", "Awareness"], 0],
+["Sản phẩm mà người tiêu dùng không cần suy nghĩ nhiều trước khi mua, có thể chỉ chọn thương hiệu quen thuộc theo thói quen. Đây là loại nào?", ["High-involvement product", "Low-involvement product", "Complex buying behavior", "Dissonance-reducing buying behavior"], 1],
+["Hành vi mua xảy ra khi người tiêu dùng rất tham gia vào việc mua sản phẩm đắt, rủi ro hoặc ít khi mua. Đây là hành vi nào?", ["Habitual buying behavior", "Complex buying behavior", "Variety-seeking buying behavior", "Dissonance-reducing buying behavior"], 1],
+["Sản phẩm đắt, ít khi mua, người mua thấy khác biệt giữa các thương hiệu rất nhỏ. Đây là hành vi nào?", ["Complex buying behavior", "Dissonance-reducing buying behavior", "Habitual buying behavior", "Variety-seeking buying behavior"], 1],
+["Nhóm adopter chấp nhận ý tưởng mới sớm nhất và chịu một mức rủi ro nhất định. Đây là nhóm nào?", ["Innovators", "Early adopters", "Late mainstream", "Laggards"], 0],
+["Nhóm adopter nghi ngờ thay đổi, chỉ chấp nhận đổi mới khi nó đã trở thành một thứ mang tính truyền thống. Đây là nhóm nào?", ["Innovators", "Late mainstream", "Lagging adopters", "Early adopters"], 2],
+["Tất cả các cá nhân và đơn vị đóng vai trò trong quá trình ra quyết định mua của một tổ chức. Đây là thuật ngữ nào?", ["Buying center", "Buyers", "Users", "Deciders"], 0],
+["Thành viên trung tâm mua kiểm soát luồng thông tin đến những người khác trong tổ chức. Đây là vai trò nào?", ["Gatekeepers", "Influencers", "Deciders", "Buyers"], 0],
+["Giai đoạn trong quy trình mua tổ chức, người mua cố gắng tìm ra nhà cung cấp tốt nhất. Đây là giai đoạn nào?", ["Supplier research", "Supplier selection", "Proposal solicitation", "Performance review"], 0],
+["Nghĩa tiếng Việt của \"opinion leader\" là gì?", ["Người dẫn dắt ý kiến", "Người kiểm soát thông tin", "Người quyết định mua", "Người sử dụng cuối"], 0],
+["Nghĩa tiếng Việt của \"social class\" là gì?", ["Tầng lớp xã hội", "Nhóm tham chiếu", "Hành vi mua", "Niềm tin"], 0],
+["Nghĩa tiếng Việt của \"buying center\" là gì?", ["Trung tâm mua", "Trung tâm phân phối", "Trung tâm dịch vụ", "Trung tâm quảng cáo"], 0],
+["Nghĩa tiếng Việt của \"gatekeepers\" là gì?", ["Người gác cổng", "Người đánh giá", "Người sử dụng", "Người quyết định"], 0],
+["Nghĩa tiếng Việt của \"habitual buying behavior\" là gì?", ["Hành vi mua theo thói quen", "Hành vi tìm kiếm đa dạng", "Hành vi mua phức tạp", "Hành vi giảm bất hòa"], 0],
+["Nghĩa tiếng Việt của \"lagging adopters\" là gì?", ["Người chấp nhận chậm", "Người đổi mới", "Người tiên phong", "Người dẫn dắt"], 0],
+["Hành vi mua sắm của người tiêu dùng cuối cùng để phục vụ tiêu dùng cá nhân được gọi là consumer buyer behavior.", ["True", "False"], 0],
+["Trong mô hình kích thích - phản ứng, các yếu tố kinh tế, công nghệ và văn hóa đều là kích thích.", ["True", "False"], 0],
+["Gia đình là tổ chức mua hàng tiêu dùng quan trọng nhất trong xã hội.", ["True", "False"], 0],
+["Business buying behavior bao gồm cả hàng hóa mua để dùng cho sản xuất và hàng mua để bán lại.", ["True", "False"], 0],
+["Giai đoạn đầu của quy trình mua tổ chức là product specification (xác định thông số kỹ thuật sản phẩm).", ["True", "False"], 1],
+["Quy trình quyết định mua gồm năm giai đoạn và giai đoạn cuối là hành vi sau mua.", ["True", "False"], 0],
+["Variety-seeking buying behavior là một trong năm giai đoạn của quy trình quyết định mua.", ["True", "False"], 1],
+["Người mua sản phẩm high-involvement cần suy nghĩ kỹ và cân nhắc nhiều yếu tố trước khi quyết định.", ["True", "False"], 0],
+["Early adopters là nhóm chấp nhận ý tưởng mới sớm nhưng thận trọng, thường là người dẫn dắt ý kiến trong cộng đồng.", ["True", "False"], 0],
+["Late mainstream chấp nhận đổi mới trước đa số người tiêu dùng.", ["True", "False"], 1],
+["Users là thành viên của tổ chức mua, người thực sự sử dụng sản phẩm hoặc dịch vụ.", ["True", "False"], 0],
+["Deciders là người có quyền chính thức hoặc không chính thức để chọn hoặc phê duyệt nhà cung cấp cuối cùng.", ["True", "False"], 0],
+["Influencers thường giúp xác định thông số kỹ thuật và cung cấp thông tin để đánh giá các phương án.", ["True", "False"], 0],
+["Ảnh hưởng truyền miệng chỉ quan trọng trong mua hàng công nghiệp, không quan trọng với người tiêu dùng cá nhân.", ["True", "False"], 1],
+["Marketing stimuli có thể bao gồm một tính năng mới của sản phẩm, mức giá thấp khi thâm nhập thị trường hoặc quà tặng kèm.", ["True", "False"], 0],
+["Dissonance-reducing buying behavior xảy ra khi người mua thấy ít khác biệt giữa các thương hiệu của sản phẩm đắt.", ["True", "False"], 0],
+["Opinion leaders thường có địa vị xã hội khá cao và nhiều người theo dõi trong mạng xã hội của họ.", ["True", "False"], 0],
+["Trial nghĩa là người tiêu dùng cam kết mua đều đặn ngay từ lần thử đầu tiên.", ["True", "False"], 1],
+["Trong giai đoạn evaluation, người tiêu dùng cân nhắc xem việc thử sản phẩm mới có hợp lý hay không.", ["True", "False"], 0],
+["Quy trình quyết định mua gồm: nhận biết nhu cầu, tìm kiếm thông tin, đánh giá phương án, quyết định mua và hành vi sau mua.", ["True", "False"], 0],
+["Proposal solicitation là giai đoạn mời các nhà cung cấp đủ điều kiện nộp đề xuất.", ["True", "False"], 0],
+["Performance review là giai đoạn người mua chọn nhà cung cấp mới lần đầu tiên.", ["True", "False"], 1],
+["The buyer decision process has five stages: need recognition, information search, evaluation of alternatives, purchase decision, and ____.", ["post-purchase behavior", "purchase decision", "information search", "variety-seeking behavior"], 0],
+["Consumers who are highly involved with expensive, risky, or infrequent purchases engage in ____ buying behavior.", ["complex", "habitual", "variety-seeking", "dissonance-reducing"], 0],
+["Members of a buying center who have formal or informal power to select or approve the final supplier are called ____.", ["deciders", "gatekeepers", "influencers", "users"], 0],
+["A(n) ____ is a person whose opinions carry weight in their social network and who often has a strong social status.", ["opinion leader", "gatekeeper", "lagging adopter", "decider"], 0],
+["The stage in the business buying process in which the buyer describes the general characteristics and quantity of a needed item is ____.", ["general need description", "product specification", "supplier research", "performance review"], 0],
+["Adopters who try new ideas at some risk are called ____.", ["innovators", "late mainstream", "lagging adopters", "early mainstream"], 0],
+["Early ____ are opinion leaders in their communities who adopt new ideas early but carefully.", ["adopters", "buyers", "users", "gatekeepers"], 0],
+["Consumers' decisions are influenced by ____ such as age, life-cycle stage, occupation, economic situation, and lifestyle.", ["personal characteristics", "reference groups", "marketing stimuli", "word-of-mouth influence"], 0],
+["A descriptive thought that a person holds about something is called a ____.", ["belief", "attitude", "perception", "motive"], 0],
+["The mental process through which an individual passes from first hearing about an innovation to final adoption is the ____ process.", ["adoption", "trial", "evaluation", "awareness"], 0],
+["Habitual buying behavior occurs when consumers have low involvement and there are little significant perceived differences among ____.", ["brands", "products", "companies", "suppliers"], 0],
+["In the business buying process, the stage where the buyer invites qualified suppliers to submit proposals is called ____.", ["proposal solicitation", "supplier selection", "performance review", "supplier research"], 0],
+["The stage in which the buyer reviews proposals and selects a supplier is called ____.", ["supplier selection", "proposal solicitation", "supplier research", "order-routine specification"], 0],
+["Members of a buying center who actually make the purchase are called ____.", ["buyers", "users", "influencers", "gatekeepers"], 0],
+["Members of the buying organization who will actually use the product or service are called ____.", ["users", "buyers", "deciders", "gatekeepers"], 0],
+["Relatively permanent and ordered divisions in a society whose members share similar values, interests and behaviors are called ____.", ["social class", "reference group", "social factors", "subculture"], 0],
+["The impact of personal recommendations from trusted friends and family on buying behavior is called ____ influence.", ["word-of-mouth", "marketing stimuli", "situational", "social"], 0],
+["Consumers buying a low-involvement product may simply select a familiar brand out of ____.", ["habit", "price", "brand loyalty", "advertising"], 0],
+["Unexpected events such as an economic downturn that change a purchase intention are called ____ factors.", ["situational", "social", "marketing stimuli", "cultural"], 0],
+["Consumers who are suspicious of change and adopt an innovation only when it has become a tradition are ____ adopters.", ["lagging", "early", "late", "innovative"], 0],
+["Một người mua máy espresso đắt tiền, hỏi nhiều bạn bè, đọc nhiều đánh giá trước khi quyết định. Đây là hành vi nào?", ["Habitual buying behavior", "Complex buying behavior", "Variety-seeking buying behavior", "Dissonance-reducing buying behavior"], 1],
+["Một người mua muối và tiêu ở siêu thị theo thói quen, không so sánh gì nhiều. Đây là hành vi nào?", ["Complex buying behavior", "Habitual buying behavior", "Dissonance-reducing buying behavior", "Variety-seeking buying behavior"], 1],
+["Sau khi mua chiếc máy giặt đắt tiền, khách hàng lo lắng và tìm các đánh giá để tự trấn an rằng mình đã chọn đúng. Đây là hành vi nào?", ["Dissonance-reducing buying behavior", "Habitual buying behavior", "Variety-seeking buying behavior", "Complex buying behavior"], 0],
+["Một người đổi loại cà phê mỗi tuần chỉ để thử vị mới, dù họ vẫn hài lòng với loại cũ. Đây là hành vi nào?", ["Habitual buying behavior", "Variety-seeking buying behavior", "Complex buying behavior", "Dissonance-reducing buying behavior"], 1],
+["Đâu KHÔNG phải là một giai đoạn trong quy trình quyết định mua gồm năm bước?", ["Need recognition", "Information search", "Variety-seeking buying behavior", "Postpurchase behavior"], 2],
+["Một khách hàng vừa nhận ra nhu cầu mua laptop mới, bắt đầu so sánh 3 mẫu trên mạng. Họ đang ở giai đoạn nào?", ["Need recognition", "Information search", "Purchase decision", "Postpurchase behavior"], 1],
+["Sau khi mua xe, khách hàng đọc các đánh giá để kiểm tra xem mình có chọn đúng không. Đây là giai đoạn nào?", ["Evaluation of alternatives", "Purchase decision", "Postpurchase behavior", "Information search"], 2],
+["Một nhóm người rất muốn trở thành thành viên của câu lạc bộ chạy bộ nổi tiếng nên mua đồ thể thao cùng thương hiệu. Đây là loại nhóm tham chiếu nào?", ["Membership group", "Aspirational group", "Social class group", "Leisure group"], 1],
+["Một công ty mua linh kiện để lắp ráp thành sản phẩm khác để bán. Đây thuộc thị trường nào?", ["Consumer market", "Business market", "Government market", "Reseller market"], 1],
+["Một cơ quan nhà nước mua xe để phục vụ các hoạt động công. Đây thuộc loại thị trường nào?", ["Consumer market", "Reseller market", "Government market", "Business market"], 2],
+["Một cửa hàng tạp hóa mua nước ngọt số lượng lớn để bán lại cho khách lẻ. Đây thuộc loại thị trường nào?", ["Business market", "Reseller market", "Consumer market", "Government market"], 1],
+["Khách hàng nghe bạn bè khen một quán ăn nên quyết định đến thử. Đây là ảnh hưởng nào?", ["Marketing stimuli", "Word-of-mouth influence", "Situational factors", "Social class"], 1],
+["Một người có hàng trăm nghìn người theo dõi trên mạng xã hội giới thiệu một loại mỹ phẩm và nhiều người làm theo. Người này là ai?", ["Opinion leader", "Gatekeeper", "Decider", "Lagging adopter"], 0],
+["Một khách hàng dùng thử bản miễn phí của phần mềm nhưng chưa trả tiền mua gói chính thức. Họ đang ở giai đoạn nào?", ["Adoption", "Trial", "Evaluation", "Need recognition"], 1],
+["Sau khi dùng thử, khách hàng quyết định sử dụng phần mềm đều đặn và trả phí hàng tháng. Đây là giai đoạn nào?", ["Trial", "Evaluation", "Adoption", "Information search"], 2],
+["Đâu là một kích thích marketing chứ không phải yếu tố môi trường?", ["Một tính năng mới của sản phẩm", "Giá thấp khi thâm nhập thị trường mới", "Quà tặng kèm khi mua", "Suy thoái kinh tế làm người mua hủy kế hoạch"], 3],
+["Suy thoái kinh tế khiến một gia đình hủy kế hoạch mua xe mới. Đây là yếu tố nào?", ["Marketing stimuli", "Situational factors", "Social class", "Word-of-mouth influence"], 1],
+["Yếu tố nào thuộc đặc điểm cá nhân ảnh hưởng đến quyết định mua?", ["Giai đoạn vòng đời", "Nhóm tham chiếu", "Ảnh hưởng truyền miệng", "Tình huống bất ngờ"], 0],
+["Một người tin rằng hàng sản xuất trong nước thường kém bền. Đây là khái niệm nào?", ["Attitude", "Belief", "Perception", "Motive"], 1],
+["Thu nhập và địa vị nghề nghiệp của một người thuộc yếu tố nào trong mô hình hành vi mua?", ["Social class", "Marketing stimuli", "Adoption process", "Buying center"], 0],
+["Một người mua nước rửa chén, thấy các thương hiệu gần giống nhau nên chọn hãng rẻ nhất. Đây là hành vi nào?", ["Complex buying behavior", "Habitual buying behavior", "Variety-seeking buying behavior", "Dissonance-reducing buying behavior"], 1],
+["Một gia đình mua căn hộ chung cư, cân nhắc nhiều tiêu chí trong thời gian dài. Đây là hành vi nào?", ["Habitual buying behavior", "Variety-seeking buying behavior", "Complex buying behavior", "Impulse buying behavior"], 2],
+["Nhóm người chấp nhận ý tưởng mới sớm nhất dù biết có rủi ro. Đây là nhóm nào?", ["Innovators", "Early mainstream", "Late mainstream", "Lagging adopters"], 0],
+["Nhóm người chấp nhận đổi mới trước người bình thường nhưng chưa phải sớm nhất. Đây là nhóm nào?", ["Innovators", "Early mainstream", "Late mainstream", "Laggards"], 1],
+["Nhóm người chỉ mua sau khi đa số người đã dùng sản phẩm mới. Đây là nhóm nào?", ["Early adopters", "Early mainstream", "Late mainstream", "Innovators"], 2],
+["Nhóm người nghi ngờ thay đổi và chỉ chấp nhận sản phẩm khi nó đã thành thói quen truyền thống. Đây là nhóm nào?", ["Innovators", "Early adopters", "Late mainstream", "Lagging adopters"], 3],
+["Trong quy trình mua tổ chức, người mua mô tả đặc điểm chung và số lượng cần mua. Đây là giai đoạn nào?", ["Product specification", "General need description", "Supplier research", "Performance review"], 1],
+["Trong trung tâm mua của công ty, kỹ sư đưa ra thông số kỹ thuật và cung cấp thông tin đánh giá nhà cung cấp. Họ là vai trò nào?", ["Users", "Buyers", "Influencers", "Gatekeepers"], 2],
+["Thư ký giữ email và điều phối lịch làm việc của giám đốc, quyết định thông tin nào được chuyển đến giám đốc. Đây là vai trò nào?", ["Gatekeepers", "Deciders", "Users", "Buyers"], 0],
+["Giám đốc tài chính có quyền phê duyệt nhà cung cấp cuối cùng cho dự án. Vai trò của họ là gì?", ["Users", "Influencers", "Deciders", "Buyers"], 2],
+["Doanh nghiệp đánh giá lại hiệu quả của nhà cung cấp sau một năm và quyết định tiếp tục, điều chỉnh hay chấm dứt hợp tác. Đây là giai đoạn nào?", ["Supplier selection", "Performance review", "Order-routine specification", "Supplier research"], 1],
+["Doanh nghiệp đặt đơn hàng định kỳ với nhà cung cấp đã được chọn. Đây là giai đoạn nào?", ["Order-routine specification", "Proposal solicitation", "Supplier research", "Product specification"], 0],
+["Doanh nghiệp tìm hiểu xem ai là nhà cung cấp tốt nhất trên thị trường trước khi mời họ nộp đề xuất. Đây là giai đoạn nào?", ["Supplier research", "Supplier selection", "Performance review", "General need description"], 0],
+["So với marketer tiêu dùng, marketer B2B thường có đặc điểm nào?", ["Ít khách hàng hơn nhưng khách hàng lớn hơn", "Nhiều khách hàng nhưng quy mô nhỏ", "Thị trường co giãn hơn", "Quy trình mua hoàn toàn khác với tiêu dùng"], 0],
+["Đâu KHÔNG phải là hành vi mua của tổ chức?", ["Mua nguyên liệu để sản xuất sản phẩm khác", "Mua dịch vụ để phục vụ việc cung cấp dịch vụ khác", "Mua hàng để bán lại cho khách khác", "Mua hàng để cá nhân tiêu dùng trong gia đình"], 3],
+["Người mua cảm thấy mình biết rất ít về thương hiệu, đọc nhiều bài viết và hỏi chuyên gia trước khi chọn. Đây là hành vi nào?", ["Habitual buying behavior", "Variety-seeking buying behavior", "Complex buying behavior", "Dissonance-reducing buying behavior"], 2],
+["Một khách hàng mua lần thứ hai thương hiệu cũ mà không cần so sánh gì, vì quen dùng. Đây là dạng hành vi nào?", ["Complex buying behavior", "Habitual buying behavior", "Dissonance-reducing buying behavior", "Variety-seeking buying behavior"], 1]
+],
+4:[
+["Quá trình chia thị trường chung thành các phân khúc nhỏ hơn với nhu cầu, đặc điểm hoặc hành vi riêng là gì?", ["Segmentation", "Targeting", "Positioning", "Differentiation"], 0],
+["Nỗ lực đánh giá sức hấp dẫn của từng phân khúc và chọn một hoặc nhiều phân khúc để tham gia là gì?", ["Targeting", "Segmentation", "Positioning", "Publicity"], 0],
+["Làm cho sản phẩm chào bán khác biệt để tạo giá trị vượt trội cho khách hàng là gì?", ["Differentiation", "Positioning", "Publicity", "Price consciousness"], 0],
+["Sắp xếp sản phẩm chiếm vị trí rõ ràng, khác biệt và mong muốn trong tâm trí khách hàng mục tiêu so với đối thủ là gì?", ["Positioning", "Targeting", "Brand image", "Usage rate"], 0],
+["Nhận thức của khách hàng về một thương hiệu được gọi là gì?", ["Brand image", "Brand equity", "Brand loyalty", "Brand value"], 0],
+["Hoạt động làm cho ai đó hoặc cái gì đó thu hút nhiều sự quan tâm của công chúng là gì?", ["Publicity", "Advertising", "Sales promotion", "Personal selling"], 0],
+["Biết giá của sự vật và tránh mua những thứ đắt tiền là gì?", ["Price consciousness", "Price elasticity", "Price discrimination", "Price skimming"], 0],
+["Phân loại người tiêu dùng thành nhẹ, vừa và nặng dựa trên mức độ sử dụng sản phẩm là gì?", ["Usage rate", "Benefit segmentation", "Occasion segmentation", "Loyalty segmentation"], 0],
+["Phân khúc dựa trên lợi ích chính mà người ta tìm kiếm ở một loại sản phẩm là gì?", ["Benefit segmentation", "Behavioral segmentation", "Geographic segmentation", "Demographic segmentation"], 0],
+["Chiến lược tập trung vào một hoặc vài thị trường ngách là gì?", ["Concentrated marketing", "Mass marketing", "Full market coverage", "Differentiated marketing"], 0],
+["Doanh nghiệp phục vụ mọi nhóm khách hàng bằng cùng một chiến lược và công cụ marketing là gì?", ["Full market coverage", "Local marketing", "Single-segment marketing", "Selective specialization"], 0],
+["Doanh nghiệp chỉ nhắm đến một phân khúc cụ thể là gì?", ["Single-segment marketing", "Multiple segmentation", "Product specialization", "Full market coverage"], 0],
+["Doanh nghiệp chọn một tập hợp các phân khúc đều hấp dẫn và phù hợp với mình là gì?", ["Selective specialization", "Product specialization", "Market specialization", "Local marketing"], 0],
+["Doanh nghiệp bán một loại sản phẩm cho nhiều phân khúc khác nhau là gì?", ["Product specialization", "Market specialization", "Selective specialization", "Full market coverage"], 0],
+["Doanh nghiệp tập trung phục vụ nhiều nhu cầu của một nhóm khách hàng cụ thể là gì?", ["Market specialization", "Product specialization", "Local marketing", "Segment-by-segment invasion"], 0],
+["Những lợi ích có thể được chia sẻ với các thương hiệu khác là gì?", ["Points-of-parity (POPs)", "Points-of-difference (PODs)", "Positioning maps", "Brand equity"], 0],
+["Lợi ích mà khách hàng gắn mạnh với thương hiệu và tin rằng khó tìm thấy ở đối thủ là gì?", ["Points-of-difference (PODs)", "Points-of-parity (POPs)", "Brand image", "Usage rate"], 0],
+["Nghĩa tiếng Việt của 'targeting' là gì?", ["Lựa chọn thị trường mục tiêu", "Phân đoạn thị trường", "Định vị", "Khác biệt hóa"], 0],
+["Nghĩa tiếng Việt của 'positioning' là gì?", ["Định vị", "Phân khúc", "Khác biệt hóa", "Nhắm mục tiêu"], 0],
+["Nghĩa tiếng Việt của 'price consciousness' là gì?", ["Ý thức về giá", "Chiến lược giá", "Biến động giá", "Định giá"], 0],
+["Nghĩa tiếng Việt của 'segment-by-segment invasion' là gì?", ["Xâm nhập từng phân khúc", "Phân phối chọn lọc", "Marketing địa phương", "Marketing đa phân khúc"], 0],
+["Nghĩa tiếng Việt của 'usage rate' là gì?", ["Mức độ sử dụng", "Tỷ lệ tăng trưởng", "Tỷ lệ chuyển đổi", "Mức giá"], 0],
+["Segmentation divides a general market into smaller segments with distinct needs, characteristics, or behaviors.", ["True", "False"], 0],
+["Targeting evaluates each market segment's attractiveness and then selects one or more segments to enter.", ["True", "False"], 0],
+["Differentiation aims to create superior customer value.", ["True", "False"], 0],
+["Positioning arranges a market offering to occupy a distinctive place relative to competitors in customers' minds.", ["True", "False"], 0],
+["Price consciousness means buying the most expensive products available.", ["True", "False"], 1],
+["Usage rate segmentation classifies customers as light, medium, or heavy users.", ["True", "False"], 0],
+["Benefit segmentation identifies the major benefits people look for in a product class.", ["True", "False"], 0],
+["Multiple segmentation is rarely used because marketers prefer a single variable.", ["True", "False"], 1],
+["Concentrated marketing emphasizes one or a few niche markets only.", ["True", "False"], 0],
+["Full market coverage serves every customer group with a different strategy for each group.", ["True", "False"], 1],
+["Local marketing involves tailoring brands and promotions to the needs of local customer groups.", ["True", "False"], 0],
+["Selective specialization means a firm chooses a subset of segments that are each attractive and appropriate.", ["True", "False"], 0],
+["Product specialization means a firm sells one product to several different market segments.", ["True", "False"], 0],
+["Market specialization means a firm concentrates on serving many needs of one customer group.", ["True", "False"], 0],
+["Points-of-parity are benefits that may be shared with other brands.", ["True", "False"], 0],
+["Points-of-difference are benefits consumers strongly associate with a brand and cannot easily find with a competitor.", ["True", "False"], 0],
+["Positioning maps represent consumer perceptions and preferences.", ["True", "False"], 0],
+["Publicity means paying for advertising space in the media.", ["True", "False"], 1],
+["Segment-by-segment invasion means dominating one segment at a time until more segments are dominated.", ["True", "False"], 0],
+["Brand image is the company's own description of its products.", ["True", "False"], 1],
+["Behavioral segmentation divides the market by knowledge, attitudes, uses, or responses toward a product.", ["True", "False"], 0],
+["Hãng nước giặt chọn tập trung vào một phân khúc duy nhất là chiến lược ____.", ["single-segment marketing", "mass marketing", "full coverage", "local marketing"], 0],
+["Usage rate categories are light, medium, and ____ users.", ["heavy", "frequent", "loyal", "occasional"], 0],
+["____ segmentation requires finding the major benefits people look for in a product class.", ["Benefit", "Occasion", "Usage rate", "Geographic"], 0],
+["Using several variables together to define smaller target groups is called ____ segmentation.", ["multiple", "single", "mass", "local"], 0],
+["____ marketing emphasizes one or a few niche markets only.", ["Concentrated", "Mass", "Full coverage", "Undifferentiated"], 0],
+["Tailoring brands and promotions to local customer groups is called ____ marketing.", ["local", "global", "mass", "direct"], 0],
+["A firm that markets to only one particular segment uses ____ marketing.", ["single-segment", "multi-segment", "full coverage", "mass"], 0],
+["The approach of entering and dominating one segment at a time is called segment-by-segment ____.", ["invasion", "targeting", "positioning", "differentiation"], 0],
+["Benefits that consumers strongly associate with a brand are called ____.", ["points-of-difference", "points-of-parity", "positioning maps", "usage rates"], 0],
+["Benefits that may be shared with other brands are called ____.", ["points-of-parity", "points-of-difference", "brand equity", "value chain"], 0],
+["____ maps are representations of consumer perceptions and preferences.", ["Positioning", "Product", "Process", "Price"], 0],
+["____ is the customer perception of a brand.", ["Brand image", "Brand loyalty", "Brand equity", "Brand extension"], 0],
+["Making sure someone or something attracts a lot of attention from many people is called ____.", ["publicity", "advertising", "pricing", "distribution"], 0],
+["Knowing how much things cost and avoiding expensive things is called ____.", ["price consciousness", "price discrimination", "price skimming", "price elasticity"], 0],
+["A firm selects a subset of segments, each attractive and appropriate, using ____ specialization.", ["selective", "product", "market", "full"], 0],
+["A firm sells one product to several market segments through ____ specialization.", ["product", "market", "selective", "single"], 0],
+["Serving many needs of a particular customer group is ____ specialization.", ["market", "product", "selective", "local"], 0],
+["Serving all customer groups with the same marketing strategy is called ____ market coverage.", ["full", "partial", "selective", "niche"], 0],
+["The three steps of STP are segmentation, targeting, and ____.", ["positioning", "pricing", "promotion", "placement"], 0],
+["A ____ is a firm that serves small segments that other firms in the industry overlook.", ["market nicher", "market leader", "challenger", "follower"], 0],
+["Chia thị trường theo độ tuổi, giới tính và nghề nghiệp là phân khúc gì?", ["Demographic", "Geographic", "Psychographic", "Benefit"], 0],
+["Chia thị trường theo vùng miền, thành phố là phân khúc gì?", ["Geographic", "Demographic", "Behavioral", "Psychographic"], 0],
+["Chia thị trường theo lối sống và cá tính là phân khúc gì?", ["Psychographic", "Demographic", "Usage rate", "Occasion"], 0],
+["Phân khúc theo dịp mua như Tết hoặc sinh nhật là phân khúc gì?", ["Occasion", "Usage rate", "Benefit", "Geographic"], 0],
+["Một hãng chỉ bán máy in cho doanh nghiệp, trường học và hộ gia đình là chiến lược gì?", ["Product specialization", "Market specialization", "Selective specialization", "Single-segment marketing"], 0],
+["Một hãng chỉ phục vụ giới trẻ với nhiều loại sản phẩm khác nhau là chiến lược gì?", ["Market specialization", "Product specialization", "Full market coverage", "Local marketing"], 0],
+["Một chuỗi cà phê điều chỉnh thực đơn theo khẩu vị từng vùng là chiến lược gì?", ["Local marketing", "Full market coverage", "Product specialization", "Concentrated marketing"], 0],
+["Một hãng chỉ dùng một thông điệp cho toàn thị trường, không phân khúc là chiến lược gì?", ["Mass marketing", "Concentrated marketing", "Market nicher", "Local marketing"], 0],
+["Doanh nghiệp nào được gọi là market nicher?", ["Doanh nghiệp phục vụ phân khúc nhỏ mà các hãng khác bỏ qua", "Doanh nghiệp dẫn đầu thị phần", "Doanh nghiệp thách thức người dẫn đầu", "Doanh nghiệp theo sau"], 0],
+["Khi doanh nghiệp xâm nhập từng phân khúc rồi dần chiếm lĩnh cả thị trường, đó là chiến lược gì?", ["Segment-by-segment invasion", "Full market coverage", "Mass marketing", "Diversification"], 0],
+["Người mua nước hoa cao cấp để thể hiện đẳng cấp là thuộc phân khúc nào?", ["Psychographic", "Demographic", "Geographic", "Usage rate"], 0],
+["Hãng phân phối chia thị trường thành Hà Nội, TP.HCM và Đà Nẵng là phân khúc nào?", ["Geographic", "Demographic", "Behavioral", "Psychographic"], 0],
+["Vì sao marketer dùng multiple segmentation?", ["Để xác định nhóm khách hàng nhỏ hơn và được xác định rõ hơn", "Vì chỉ cần một biến duy nhất", "Vì rẻ hơn mọi phương pháp", "Vì loại bỏ được hoàn toàn đối thủ"], 0],
+["Một hãng nước uống tự nhận 'không đường' để khác đối thủ là điểm nào?", ["Point-of-difference", "Point-of-parity", "Brand equity", "Positioning map"], 0],
+["Hầu hết các quán cà phê đều có wifi và chỗ ngồi, đó được gọi là gì?", ["Points-of-parity", "Points-of-difference", "Brand image", "Usage rate"], 0],
+["Mục đích của positioning map là gì?", ["Thể hiện nhận thức và sở thích của khách hàng về các thương hiệu", "Tính giá thành sản phẩm", "Lập kế hoạch phân phối", "Theo dõi tồn kho"], 0],
+["Trong quy trình marketing theo phân khúc, doanh nghiệp cần làm gì trước khi định vị?", ["Phân khúc và chọn thị trường mục tiêu", "Đặt giá thấp nhất", "Quảng cáo ngay", "Cắt giảm chi phí trước"], 0],
+["Người luôn kiểm tra giá và so sánh nhiều cửa hàng trước khi mua có đặc điểm gì?", ["Price consciousness", "Brand loyalty", "Impulse buying", "High usage"], 0],
+["Khi khách hàng coi thương hiệu là 'thời thượng', điều này phản ánh điều gì?", ["Brand image", "Brand equity", "Price elasticity", "Usage rate"], 0],
+["Một quán cà phê tổ chức sự kiện khai trương để thu hút báo chí là hoạt động gì?", ["Publicity", "Advertising", "Personal selling", "Direct marketing"], 0],
+["Nhóm khách hàng mua thường xuyên nhất được gọi là gì?", ["Heavy users", "Light users", "Medium users", "Occasional users"], 0],
+["Doanh nghiệp đánh giá phân khúc dựa trên yếu tố nào?", ["Quy mô và mức tăng trưởng của phân khúc", "Logo của công ty", "Vị trí văn phòng", "Số lượng nhân viên"], 0],
+["Phân khúc đo lường được quy mô và sức mua là tiêu chí nào?", ["Measurable", "Accessible", "Substantial", "Actionable"], 0],
+["Phân khúc đủ lớn để sinh lời là tiêu chí nào?", ["Substantial", "Measurable", "Accessible", "Actionable"], 0],
+["Doanh nghiệp có thể tiếp cận phân khúc qua kênh phân phối và truyền thông là tiêu chí nào?", ["Accessible", "Measurable", "Substantial", "Actionable"], 0],
+["Doanh nghiệp có thể xây dựng chương trình marketing hiệu quả cho phân khúc là tiêu chí nào?", ["Actionable", "Measurable", "Substantial", "Accessible"], 0],
+["ByWay chọn chiến lược khác biệt hóa. Doanh nghiệp phải cân nhắc điều gì?", ["Doanh số tăng và chi phí tăng", "Nghiên cứu thêm và chi phí", "Phân tích doanh số và doanh số", "Thái độ và nhận thức"], 0],
+["Bốn bước theo thứ tự để thiết kế chiến lược marketing theo khách hàng là gì?", ["Segmentation, targeting, differentiation, positioning", "Positioning, segmentation, mass marketing, targeting", "Alignment, segmentation, differentiation, positioning", "Recognition, preference, targeting, insistence"], 0],
+["Khi phân khúc đã đo lường được và tiếp cận được, doanh nghiệp còn cần đảm bảo tiêu chí nào để có thể hành động?", ["Actionable", "Concentrated", "Mass", "Differentiated"], 0],
+["Một hãng bán thực phẩm tập trung cho khách ăn chay là chiến lược gì?", ["Concentrated marketing", "Full market coverage", "Mass marketing", "Local marketing"], 0],
+["Một doanh nghiệp chọn phân khúc có lợi nhuận và có khả năng tăng trưởng để tham gia là gì?", ["Targeting", "Segmentation", "Publicity", "Price consciousness"], 0],
+["Một người tiêu dùng mua một loại sản phẩm nhiều lần trong tuần là thuộc nhóm nào?", ["Heavy users", "Light users", "Occasional users", "Non-users"], 0],
+["Yếu tố 'dễ tiếp cận' trong tiêu chí phân khúc nghĩa là gì?", ["Doanh nghiệp có thể phục vụ phân khúc qua kênh và truyền thông", "Phân khúc có giá rẻ", "Phân khúc có ít đối thủ", "Phân khúc đông dân"], 0],
+["Khi chọn phân khúc, nhóm hấp dẫn nhất có đặc điểm nào?", ["Quy mô lớn, tăng trưởng nhanh và ít đối thủ mạnh", "Quy mô nhỏ và không tăng trưởng", "Không có khả năng mua", "Chỉ ở một tỉnh"], 0],
+["Một hãng xe tập trung toàn bộ nguồn lực vào phân khúc xe điện cao cấp là chiến lược nào?", ["Concentrated (single-segment) marketing", "Mass marketing", "Full market coverage", "Local marketing"], 0],
+["Đâu là ví dụ về POD cho một hãng ô tô?", ["Động cơ tiết kiệm nhiên liệu độc quyền mà đối thủ không có", "Có điều hòa", "Có 4 bánh", "Có đèn pha"], 0],
+["Đâu là ví dụ về POP cho một hãng ô tô?", ["Có điều hòa, như mọi hãng khác", "Thiết kế độc quyền không ai có", "Dịch vụ bảo hành riêng", "Tên thương hiệu độc quyền"], 0]
+],
+6:[
+[`Are consumer products and services with unique characteristics and brand identification for which a significant group of buyers is willing to make a special purchase effort?`,[`Shopping products`,`Unsought products`,`Specialty products`,`Industrial products`],2],
+[`Which of the following product offerings is intangible?`,[`Fish for an aquarium`,`Refillable ink cartridges for a computer printer`,`A mink coat`,`A limousine ride`],3],
+[`Which of the following is/are examples of product line length?`,[`Hamburger and cheeseburger`,`Hamburger and apple pie`,`Coke and Coke diet`,`Both A and C`],3],
+[`Product mix ______ refers to the number of different product lines the company carries.`,[`Length`,`Height`,`Width`,`Depth`],2],
+[`______ contributes to a product's usefulness as well as to its looks.`,[`Style`,`Design`,`Conformance quality`,`Functionality`],1],
+[`The purpose of idea generation is to create a ______ number of ideas. The purpose of succeeding stages is to ______ that number.`,[`Small, reduce`,`Small, increase`,`Large, increase`,`Large, reduce`],3],
+[`A review of the sales, cost and profit projections for a new product to find out whether they satisfy the company's objectives is called a ______.`,[`Business feasibility plan`,`Marketing strategy development`,`Business analysis`,`Product acceptance`],2],
+[`New product development starts with ______.`,[`Idea generation`,`Idea screening`,`Concept development`,`Test marketing`],0],
+[`The major purpose of test marketing is to provide management with the information needed to make a final decision about ______.`,[`How to develop a market strategy`,`Which market to compete in`,`Whether to launch the new product`,`How long to compete in the market`],2],
+[`______ are consumer products that the consumer either does not know about or knows about but does not normally think about buying.`,[`Specialty products`,`Line extensions`,`Unsought products`,`Shopping products`],2],
+[`The third level of a product that product planners must consider is an ______ that offers additional consumer services and benefits.`,[`Brand equity`,`Augmented product`,`Brand extension`,`Industrial product`],1],
+[`Introducing a new product into the market is called ______.`,[`Test marketing`,`New product development`,`Experimenting`,`Commercialization`],3],
+[`The search for new-product ideas should be ______ rather than haphazard.`,[`Intermittent`,`Systematic`,`Segmented`,`Rare`],1],
+[`Which of these products is an example of a consumer good?`,[`Intel chips for computers`,`A drink can filling machine`,`A bottle of soap powder`,`The design of an advertisement for computers`],2],
+[`At which stage of the product life cycle do sales rise at the fastest rate?`,[`Maturity`,`Introduction`,`Decline`,`Growth`],3],
+[`A consumer product that a customer either does not know about or knows about but does not normally consider buying is ______.`,[`Unsought product`,`Branded product`,`Actual product`,`Core product`],0],
+[`The product level that answers the question "what benefit is the buyer really buying?" is the:`,[`Core benefit`,`Actual product`,`Augmented product`,`Packaging`],0],
+[`The product level that includes quality level, features, design, brand name and packaging is the:`,[`Core benefit`,`Actual product`,`Augmented product`,`Expected product`],1],
+[`The product level that adds extra services such as warranty, installation and delivery is the:`,[`Expected product`,`Potential product`,`Augmented product`,`Generic product`],2],
+[`Which product level includes all possible future augmentations and transformations of the product?`,[`Potential product`,`Expected product`,`Actual product`,`Core benefit`],0],
+[`The set of conditions buyers normally expect when they buy a product, such as a clean bed in a hotel room, is the:`,[`Augmented product`,`Expected product`,`Generic product`,`Potential product`],1],
+[`Products bought frequently with minimal comparison effort, such as detergent or chewing gum, are:`,[`Shopping products`,`Convenience products`,`Specialty products`,`Industrial products`],1],
+[`Products that consumers compare carefully on suitability, quality, price and style, such as furniture, are:`,[`Convenience products`,`Unsought products`,`Shopping products`,`Specialty products`],2],
+[`A luxury watch brand that a loyal group of buyers will travel far to purchase is an example of a:`,[`Convenience product`,`Shopping product`,`Specialty product`,`Unsought product`],2],
+[`Fire extinguishers and life insurance are typical examples of:`,[`Convenience products`,`Shopping products`,`Specialty products`,`Unsought products`],3],
+[`Products purchased for further processing or for use in conducting a business are called:`,[`Consumer products`,`Industrial products`,`Staple products`,`Impulse products`],1],
+[`Which of the following is a capital item?`,[`An office building`,`Paper clips`,`Cleaning supplies`,`Raw cotton`],0],
+[`Which of the following is a raw material?`,[`Wheat harvested from a field`,`A finished laptop`,`A forklift`,`Office stationery`],0],
+[`Which of the following is a materials-and-parts item?`,[`A car engine bought by an automaker for assembly`,`A factory building`,`A lubricant for maintenance`,`Printer paper for the office`],0],
+[`Which of the following is a consumer good?`,[`A bottle of shampoo`,`A steel sheet for car bodies`,`An industrial robot`,`A glue drum for factories`],0],
+[`The number of versions offered of each product in a product line is called the product line:`,[`Width`,`Length`,`Depth`,`Consistency`],2],
+[`The total number of items a company carries within all its product lines is the product mix:`,[`Width`,`Length`,`Depth`,`Consistency`],1],
+[`How closely related the product lines are in end use, production requirements or distribution channels describes the product mix's:`,[`Width`,`Length`,`Depth`,`Consistency`],3],
+[`A company that sells soap, shampoo and toothpaste lines has a product mix with a width of:`,[`3 product lines`,`3 items in total`,`3 versions of each product`,`3 brands only`],0],
+[`A company offering 4 sizes of one TV model within a single product line illustrates product line:`,[`Width`,`Depth`,`Consistency`,`Brand equity`],1],
+[`The ability of a product to perform its intended function well is described as:`,[`Functionality`,`Style`,`Brand`,`Packaging`],0],
+[`The way a product looks and feels to buyers, such as its visual appeal, is best described as:`,[`Style`,`Conformance quality`,`Durability`,`Repairability`],0],
+[`Conformance quality refers to:`,[`Freedom from defects and consistent delivery of the promised performance level`,`The number of product features`,`The color and shape of the packaging`,`The reputation of the brand`],0],
+[`The total financial value of a brand is called brand:`,[`Value`,`Image`,`Loyalty`,`Extension`],0],
+[`The set of beliefs, ideas and impressions a person holds regarding a brand is called brand:`,[`Image`,`Value`,`Equity`,`Loyalty`],0],
+[`A brand name owned by a manufacturer, such as Samsung or Vinamilk, is a:`,[`Store brand`,`Manufacturer's brand`,`Private label`,`Generic brand`],1],
+[`A brand created and owned by a reseller, such as a supermarket's own label, is a:`,[`Manufacturer's brand`,`National brand`,`Store (private) brand`,`Co-brand`],2],
+[`Consumer faithfulness to a specific brand, shown through repeat purchases and positive word of mouth, is called brand:`,[`Loyalty`,`Image`,`Equity`,`Value`],0],
+[`Using the established brand names of two different companies on the same product is called:`,[`Co-branding`,`Line extension`,`Brand extension`,`Private labeling`],0],
+[`Extending an existing brand name to new forms, colors, sizes, ingredients or flavors within the same category is called:`,[`Brand extension`,`Line extension`,`Co-branding`,`Brand licensing`],1],
+[`Extending an existing brand name to new product categories is called:`,[`Line extension`,`Brand extension`,`Co-branding`,`Multibranding`],1],
+[`Brand equity is best described as:`,[`A measure of a brand's ability to capture consumer preference and loyalty`,`The physical size of the logo`,`The number of stores selling the brand`,`The price premium alone`],0],
+[`Points-of-parity are:`,[`Benefits that may be shared with other brands`,`Benefits that only one brand has`,`Prices set by the government`,`Packaging designs`],0],
+[`Points-of-difference are:`,[`Benefits shared with all competitors`,`Benefits consumers strongly associate with a brand and cannot easily find to the same extent elsewhere`,`Differences in product prices only`,`Differences in store locations`],1],
+[`A major benefit of brand extension is that it:`,[`Reduces the risk of launching a new product thanks to existing brand awareness`,`Eliminates the need for advertising`,`Always lowers production costs`,`Removes competition`],0],
+[`A main risk of brand extension is that it can:`,[`Dilute the original brand's image`,`Always raise prices`,`Eliminate brand loyalty`,`Remove all competition`],0],
+[`The main purpose of co-branding is to:`,[`Combine the strengths of two brands on one product`,`Reduce product quality`,`Avoid all competition`,`Cut the price to zero`],0],
+[`Store brands (private labels) are typically:`,[`Owned and sold by retailers`,`Owned by manufacturers and sold nationally`,`Licensed from celebrities`,`Sold only online`],0],
+[`Brand loyalty is shown most clearly through:`,[`Repeat purchases and positive word of mouth`,`The number of logos`,`The size of the advertising budget`,`The number of distributors`],0],
+[`Offering several brands in the same product category to attract different segments is called:`,[`Multibranding`,`Brand extension`,`Co-branding`,`Line stretching`],0],
+[`The most important criteria for a good brand name include:`,[`Suggesting product benefits and being easy to pronounce and remember`,`Being as long as possible`,`Copying a competitor's name`,`Being written only in a foreign language`],0],
+[`A sign of a strong brand is:`,[`High awareness and loyalty among customers`,`Constantly changing its name`,`Selling only at the lowest price`,`Having many colors on the package`],0],
+[`The set of human characteristics associated with a brand is called brand:`,[`Personality`,`Equity`,`Extension`,`Strategy`],0],
+[`The systematic search for new product ideas is called:`,[`Idea generation`,`Idea screening`,`Concept testing`,`Test marketing`],0],
+[`Inviting broad communities of customers, employees, scientists and the public to contribute new product ideas is called:`,[`Crowdsourcing`,`Benchmarking`,`Test marketing`,`Penetration pricing`],0],
+[`The stage that spots good ideas and drops poor ones as soon as possible is:`,[`Idea screening`,`Idea generation`,`Commercialization`,`Business analysis`],0],
+[`A detailed version of a new product idea stated in meaningful consumer terms is a:`,[`Product concept`,`Brand image`,`Sales forecast`,`Packaging sketch`],0],
+[`Testing new product concepts with target consumers to see whether they have strong appeal is:`,[`Concept testing`,`Test marketing`,`Business analysis`,`Commercialization`],0],
+[`Designing an initial marketing strategy for a new product based on its concept is:`,[`Marketing strategy development`,`Idea screening`,`Business analysis`,`Commercialization`],0],
+[`Reviewing projected sales, costs and profits to see whether they meet company objectives is:`,[`Business analysis`,`Idea generation`,`Concept testing`,`Test marketing`],0],
+[`Testing a product and its marketing program in realistic market settings is:`,[`Test marketing`,`Concept testing`,`Product development`,`Commercialization`],0],
+[`Which stage of new product development comes right after test marketing?`,[`Commercialization`,`Idea generation`,`Idea screening`,`Concept testing`],0],
+[`Which of the following is NOT a stage in the new product development process?`,[`Idea generation`,`Idea screening`,`Brand auditing`,`Commercialization`],2],
+[`The PLC stage in which a new product is first distributed and made available for purchase is:`,[`Introduction`,`Growth`,`Maturity`,`Decline`],0],
+[`The PLC stage in which a product's sales start climbing quickly is:`,[`Introduction`,`Growth`,`Maturity`,`Decline`],1],
+[`During which PLC stage do profits typically peak?`,[`Introduction`,`Growth`,`Maturity`,`Decline`],1],
+[`The PLC stage in which a product's sales growth slows or levels off is:`,[`Maturity`,`Growth`,`Introduction`,`Decline`],0],
+[`The PLC stage in which a product's sales fade away is:`,[`Introduction`,`Maturity`,`Growth`,`Decline`],3],
+[`During which PLC stage are profits usually low or negative because of heavy promotion costs?`,[`Introduction`,`Growth`,`Maturity`,`Decline`],0],
+[`Which strategy is typical in the maturity stage?`,[`Product modification and seeking new users`,`Heavy promotion to create awareness only`,`Stopping all advertising immediately`,`Removing all product variants at once`],0],
+[`In the decline stage, a company may consider:`,[`Harvesting or dropping the product`,`Launching a national advertising campaign`,`Raising production capacity`,`Entering new distribution channels only`],0],
+[`In the maturity stage, companies often:`,[`Face price pressure and may reduce prices`,`Raise prices sharply to create scarcity`,`Stop competing entirely`,`Have no competitors`],0],
+[`Introduction-stage marketing usually focuses on:`,[`Building awareness and trial`,`Harvesting profits`,`Cutting all promotion`,`Dropping the product`],0],
+[`Which of the following is an intangible offering?`,[`A haircut`,`A laptop`,`A bottle of water`,`A car`],0],
+[`Which of the following is a product rather than a service?`,[`A bicycle`,`A haircut`,`A hotel stay`,`A bank loan`],0],
+[`A customer buying a drill really buys:`,[`A hole in the wall`,`A drill bit only`,`A warranty`,`A battery pack`],0],
+[`Which of the following is NOT one of the four main characteristics of services?`,[`Intangibility`,`Inseparability`,`Variability`,`Durability`],3],
+[`Perishability of services means that services:`,[`Cannot be stored for later sale`,`Always last longer than goods`,`Can be inventoried easily`,`Are always identical`],0],
+[`Variability of services means that service quality:`,[`Depends on who provides it and when, where and how it is provided`,`Is always the same`,`Cannot be measured`,`Is independent of staff`],0],
+[`Inseparability means that services:`,[`Are produced and consumed at the same time`,`Can be separated from their providers`,`Always involve physical goods`,`Can be stored indefinitely`],0],
+[`Which of the following is a durable good?`,[`A refrigerator`,`Ice cream`,`A bus ticket`,`A concert`],0],
+[`Which of the following is a non-durable good?`,[`A refrigerator`,`Ice cream`,`A car`,`A sofa`],1],
+[`A distinct unit within a product line, distinguished by size, price, appearance or another attribute, is called a:`,[`Product item`,`Product mix`,`Product line`,`Brand equity`],0],
+[`A group of closely related products that function similarly or are sold to the same customer groups is a:`,[`Product line`,`Product mix`,`Brand`,`Product item`],0],
+[`Adding more items within the existing range of a product line is called:`,[`Line filling`,`Line stretching`,`Line pruning`,`Brand extension`],0],
+[`Extending a product line beyond its current range, such as into a higher or lower price segment, is called:`,[`Line stretching`,`Line filling`,`Line pruning`,`Co-branding`],0],
+[`Removing weak items from a product line is called:`,[`Line pruning`,`Line filling`,`Line stretching`,`Co-branding`],0],
+[`Product decisions include features, brand, packaging, labeling and:`,[`Product support services`,`Pricing strategies`,`Distribution channels`,`Media plans`],0],
+[`Which decision identifies the seller through a name, logo or symbol?`,[`Branding`,`Pricing`,`Packaging`,`Distribution`],0],
+[`Packaging that gives the product protection, containment and identity is part of:`,[`Packaging decisions`,`Pricing decisions`,`Channel decisions`,`Promotion decisions`],0],
+[`Marketing activities to create or change attitudes toward a particular city or region are:`,[`Place marketing`,`Person marketing`,`Social marketing`,`Organization marketing`],0],
+[`Marketing aimed at changing attitudes toward a particular celebrity or politician is:`,[`Person marketing`,`Place marketing`,`Social marketing`,`Idea marketing`],0],
+[`Campaigns to reduce drink-driving or smoking are examples of:`,[`Social marketing`,`Place marketing`,`Organization marketing`,`Person marketing`],0],
+[`Activities to create or change attitudes toward an organization are:`,[`Organization marketing`,`Person marketing`,`Place marketing`,`Social marketing`],0],
+[`A sign of a promising new product idea is:`,[`Positive concept test results from target customers`,`No interest from target customers`,`Weak demand and high cost`,`Low margins with no buyers`],0]
+],
+7:[
+[`Godiva packages its chocolates in an elegant high-quality box and gold wrapping paper, and its commercials show elegant couples. Which pricing strategy is being used?`,[`Value-based pricing`,`Cost-based pricing`,`Predatory pricing`,`Competition-based pricing`],0],
+[`Which pricing strategy describes when a product is priced at £4.99 rather than £5.00 to give the buyer the impression of a good deal?`,[`Target costing`,`Psychological pricing`,`Cost-plus pricing`,`Value-based pricing`],1],
+[`A firm launches a new and unique product and charges a high price to "cream" the market before competitors respond. This is an example of:`,[`Market skimming`,`Price discounting`,`Price differentiation`,`Penetration pricing`],0],
+[`Toyota Thanh Xuan sells new cars at a slightly higher price but offers extra services (leather seats, sound system, insurance) at attractive prices to encourage more purchases. What pricing strategy is it using?`,[`Captive pricing`,`Product line pricing`,`Optional pricing`,`By-product pricing`],2],
+[`A new retailer sells 59-inch TVs for $200 when others sell them for $800, knowing this will drive some competitors out of business. Which pricing strategy is this?`,[`Price discrimination`,`Value-based pricing`,`Psychological pricing`,`Predatory pricing`],3],
+[`HP sells printers at a low price for promotion and sets a high margin on ink. What pricing strategy is HP using?`,[`Product line pricing`,`Captive pricing`,`Optional pricing`,`By-product pricing`],1],
+[`Package holiday companies display high prices in brochures and then offer big discounts to encourage booking. This is an example of:`,[`Discount pricing`,`Segmented pricing`,`Penetration pricing`,`Market skimming`],0],
+[`To reduce the price of apple juice, Dole sells apple peels and seeds as fertilizer. What pricing strategy is Dole using?`,[`Optional product pricing`,`Product line pricing`,`By-product pricing`,`Captive pricing`],2],
+[`A store prices a product at $9.99 instead of $10. Which pricing strategy is used?`,[`Predatory pricing`,`Value-based pricing`,`Psychological pricing`,`Cost-based pricing`],2],
+[`Fast-food restaurants sell burgers, fries and a drink together at a lower price than buying them separately. This strategy is called:`,[`Product-bundle pricing`,`Captive pricing`,`Penetration pricing`,`Dynamic pricing`],0],
+[`When General Motors provides payments or price reductions to new car dealers as rewards for participating in advertising and sales support programs, it is granting a:`,[`Trade discount`,`Functional discount`,`Cash discount`,`Promotional allowance`],3],
+[`With product bundle pricing, sellers can combine several products and offer the bundle:`,[`As a reward to loyal customers`,`At a reduced price`,`As a complete self-service package only`,`At a premium price`],1],
+[`Which of the following is NOT one of the price adjustment strategies?`,[`Discount and allowance pricing`,`Segmented pricing`,`Physiological pricing`,`Promotional pricing`],2],
+[`Secret Sneaker gives $10 for any old pair of sneakers when a customer buys a new pair. This type of price adjustment is called:`,[`Functional discount`,`Captive product`,`Seasonal discount`,`Trade-in allowance`],3],
+[`What is one major advantage of product bundle pricing?`,[`It can promote the sales of products consumers might not otherwise buy`,`It always raises the price of every item`,`It removes the need for advertising`,`It creates a monopoly`],0],
+[`Which is the first step in deciding on a price, according to the reasons companies cut prices?`,[`Excess capacity`,`Falling demand in the face of strong price competition`,`A drive to reduce market share`,`A drive to gain market share through lower costs`],2],
+[`Customer value-based pricing uses which basis for setting prices?`,[`Buyers' perceptions of value rather than the seller's cost`,`The seller's production cost only`,`Government regulation`,`The lowest competitor price only`],0],
+[`Product costs set a ______ to a product's price.`,[`Demand curve`,`Floor`,`Ceiling`,`Break-even cost`],1],
+[`The relationship between the price charged and the resulting demand level can be shown as the:`,[`Demand curve`,`Variable cost`,`Target cost`,`Experience curve`],0],
+[`Rent, electricity and executive salaries are examples of:`,[`Fixed costs`,`Variable costs`,`Accumulated costs`,`Marketing costs`],0],
+[`Which of the following would NOT support a market-skimming policy for a new product?`,[`The product's quality and image support its higher price`,`Enough buyers want the product at that price`,`Competitors cannot easily undercut the high price`,`Competitors can enter the market easily`],3],
+[`When a firm adjusts price to reduce excess demand, it is most likely responding to which reason for raising prices?`,[`Over-demand for the product that the company cannot meet`,`Excess production capacity`,`Falling demand`,`A need to boost sales volume`],0],
+[`In the marketing mix, which element is the only one that represents revenue rather than cost?`,[`Price`,`Product`,`Place`,`Promotion`],0],
+[`Vale Fashions introduces a new line of dresses at high prices for teens. This is a ______ pricing strategy.`,[`Market penetration`,`Market skimming`,`Competitive`,`Psychological`],1],
+[`Market skimming pricing would most likely be most effective when selling:`,[`An electronic device that requires continuous research and development`,`Anything that is easily copied by competitors`,`Shampoo and bath soap`,`Any convenience item`],0],
+[`Which pricing strategy is used when a hotel charges lower prices in the off-season to attract more guests?`,[`Seasonal discount`,`Predatory pricing`,`Psychological pricing`,`Captive pricing`],0],
+[`Management wants to charge a price that will at least cover total production costs at a given level of production. This is:`,[`Cost-based pricing`,`Dynamic pricing`,`Predatory pricing`,`Psychological pricing`],0],
+[`A firm launches a product with a low introductory price to attract a large number of buyers quickly. This is:`,[`Penetration pricing`,`Market skimming`,`Prestige pricing`,`Two-part pricing`],0],
+[`Razor makers sell cheap razors and sell expensive blades that must be used with them. This is:`,[`Captive product pricing`,`Market skimming`,`Psychological pricing`,`Dynamic pricing`],0],
+[`Printer makers sell printers cheaply and earn profit on the ink cartridges. This is:`,[`Captive product pricing`,`Discount pricing`,`Two-part pricing`,`Escalator pricing`],0],
+[`Charging a low price for the main product while earning from optional accessories is:`,[`Optional product pricing`,`Segmented pricing`,`Dynamic pricing`,`Predatory pricing`],0],
+[`A pricing approach in which a seller sets the price of the main product and a separate usage fee is called:`,[`Two-part pricing`,`By-product pricing`,`Discount pricing`,`Bundle pricing`],0],
+[`Which is an example of by-product pricing?`,[`A sawmill sells sawdust as animal bedding to offset its costs`,`A restaurant sells a meal bundle at a set price`,`A car dealer offers trade-in credit`,`A bank charges monthly fees`],0],
+[`Pricing leather seats and an extended warranty separately from the base car is an example of:`,[`Optional product pricing`,`Captive product pricing`,`Segmented pricing`,`Dynamic pricing`],0],
+[`Selling the same product to different customers at different prices is:`,[`Segmented pricing`,`Dynamic pricing`,`Psychological pricing`,`Cost-plus pricing`],0],
+[`Offering discounted bus fares for students and elderly passengers is an example of:`,[`Segmented pricing`,`Predatory pricing`,`Penetration pricing`,`Value-based pricing`],0],
+[`Prices that fluctuate with demand and supply movements on the market are called:`,[`Dynamic pricing`,`Captive pricing`,`Escalator pricing`,`Prestige pricing`],0],
+[`Prices for different products in the hot beverages category of McDonald's are an example of:`,[`Product line pricing`,`By-product pricing`,`Captive pricing`,`Segmented pricing`],0],
+[`Setting price steps between various products in a product line based on cost differences, customer evaluations and competitors' prices is:`,[`Product line pricing`,`Optional product pricing`,`Captive product pricing`,`Penetration pricing`],0],
+[`Using buyers' perceptions of value rather than the seller's cost is:`,[`Customer value-based pricing`,`Cost-based pricing`,`Competition-based pricing`,`Penetration pricing`],0],
+[`Setting prices based on competitor strategies, costs, prices and marketing offerings is:`,[`Competition-based pricing`,`Customer value-based pricing`,`Cost-plus pricing`,`Market skimming`],0],
+[`Pricing is:`,[`A function of marketing that determines how much gross profit a business will make on a good or service`,`Choosing the color of the packaging`,`Designing the store layout`,`Ordering raw materials`],0],
+[`A pricing strategy used during the introduction stage of a new product to attract a large number of buyers is:`,[`Penetration pricing`,`Market skimming`,`Prestige pricing`,`Target costing`],0],
+[`Which statement about pricing strategy is correct?`,[`Market skimming allows an organisation to make the largest profit possible`,`Market skimming starts with a low introductory price to build a customer base`,`Value-based pricing sets prices from production costs plus a fair return`,`The wholesale price is paid by consumers who buy many examples of the same product`],0],
+[`Which statement about psychological pricing is correct?`,[`It refers to offering items at an uneven number to appear cheaper and encourage sales`,`It means charging the highest possible price on purpose`,`It is the same as cost-plus pricing`,`It is used only in business-to-business markets`],0],
+[`Which statement about cost-based pricing is correct?`,[`Prices are set based on the costs of producing, distributing and selling the product plus a fair rate of return`,`Prices are set based only on buyers' perceived value`,`Prices are set to match competitors exactly`,`Prices are set at the minimum price allowed by law`],0],
+[`Which statement about promotional pricing is correct?`,[`It is used to temporarily lower prices to attract customers or boost short-term sales`,`It is used only to reduce prices below production cost to clear stock permanently`,`It is used only for business customers`,`It always increases the product's long-term price`],0],
+[`Which is the best definition of wholesale price?`,[`The price paid by businesses or resellers who buy in large quantities for resale`,`The price paid by a consumer buying one item`,`The price after all discounts for online shoppers`,`The price set by the government`],0],
+[`Which is the best description of value-based pricing?`,[`Setting prices based on what customers perceive the product is worth`,`Setting prices based on production cost only`,`Setting prices to undercut every competitor`,`Setting prices based on the number of employees`],0],
+[`Which factor is external to pricing decisions?`,[`Customer demand and competition`,`Company's marketing objectives`,`Product cost structure`,`The marketing mix`],0],
+[`Which factor is internal to pricing decisions?`,[`Company objectives and costs`,`Competitors' price changes`,`Customer demand`,`Government regulations`],0],
+[`Which pricing objective is typical when firms face excess capacity and heavy competition?`,[`Survival`,`Maximum current profit`,`Product quality leadership`,`Prestige`],0],
+[`Choosing the price that maximizes current profit, cash flow or return on investment is the pricing objective of:`,[`Current profit maximization`,`Market share leadership`,`Survival`,`Product quality leadership`],0],
+[`Setting the lowest price to attract the most buyers and gain the largest market share is the objective of:`,[`Market share leadership`,`Current profit maximization`,`Survival`,`Prestige positioning`],0],
+[`Charging higher prices to cover the costs of high quality and reinforce a quality image is the objective of:`,[`Product quality leadership`,`Survival`,`Market share leadership`,`Current profit maximization`],0],
+[`The list price is:`,[`The initial price a seller quotes before any discounts`,`The final price after all discounts`,`The price paid by employees only`,`The price set by competitors`],0],
+[`Reference prices are:`,[`Prices customers use as benchmarks to judge whether a price is fair`,`Prices printed on packaging by law`,`Prices set only at product launch`,`Prices charged only to wholesalers`],0],
+[`Customers who judge a higher price as a sign of higher quality are showing:`,[`Price-quality inference`,`Price elasticity`,`Cost-plus thinking`,`Predatory expectations`],0],
+[`Setting prices so total revenue equals total cost is called:`,[`Break-even pricing`,`Target costing`,`Penetration pricing`,`Escalator pricing`],0],
+[`Target costing starts with:`,[`A target price customers will pay, then working back to a target cost`,`The production cost with no price target`,`The competitor's price with no cost analysis`,`A government-set price`],0],
+[`Price elasticity of demand measures:`,[`How quantity demanded responds to a change in price`,`Production efficiency`,`The advertising budget`,`Customer satisfaction`],0],
+[`Variable costs are costs that:`,[`Change with the level of production`,`Stay the same regardless of production`,`Are paid only once`,`Are set by the government`],0],
+[`Total cost equals:`,[`Fixed costs plus variable costs`,`Revenue minus profit`,`Price times quantity`,`Markup times cost`],0],
+[`A reason a firm might cut its price is:`,[`Excess capacity`,`Strong demand that exceeds supply`,`A need to raise prices to protect the brand`,`A monopoly market`],0],
+[`Markup pricing means:`,[`Adding a markup to the product's cost to reach the selling price`,`Subtracting a markup from the selling price to get profit`,`Setting prices equal to the markup`,`Setting prices by customer surveys`],0],
+[`Going-rate pricing means:`,[`Setting prices mainly based on competitors' prices`,`Setting prices based only on production cost`,`Setting prices by auction`,`Setting prices by seasonal demand`],0],
+[`Sealed-bid pricing is most commonly used in:`,[`Government contracts and tenders`,`Supermarkets`,`Fast-food restaurants`,`Clothing retail`],0],
+[`Trade discounts are given to:`,[`Channel members such as wholesalers and retailers for performing functions`,`Final consumers for buying in bulk`,`Employees as loyalty rewards`,`Suppliers for early delivery`],0],
+[`A functional discount is another name for:`,[`Trade discount`,`Cash discount`,`Seasonal discount`,`Quantity discount`],0],
+[`Quantity discounts are designed to:`,[`Encourage buyers to purchase larger amounts`,`Encourage buyers to pay late`,`Raise the seller's prices`,`Drive competitors out of the market`],0],
+[`A discount for paying early is called a:`,[`Cash discount`,`Trade discount`,`Promotional allowance`,`Trade-in allowance`],0],
+[`A reduction for buying goods or services out of their peak season is a:`,[`Seasonal discount`,`Cash discount`,`Loyalty reward`,`Agent commission`],0],
+[`Price lining means:`,[`Offering a few set price points for product categories`,`Setting different prices for every item`,`Changing prices every hour`,`Selling only at cost`],0],
+[`Prestige pricing means:`,[`Setting a high price to signal quality and status`,`Setting the lowest price in the market`,`Setting prices by cost plus margin`,`Setting prices only for loyal customers`],0],
+[`Odd-even pricing uses prices that:`,[`End in 9 or 99 so they appear lower`,`Are always even numbers like $10 or $20`,`Are based on the product's weight`,`Are set by the government`],0],
+[`Loss-leader pricing means:`,[`Selling a product at a loss to attract customers who buy other profitable products`,`Selling only at a loss to clear all stock`,`Setting prices to match the highest competitor`,`Selling only premium items`],0],
+[`Clearance pricing is used to:`,[`Reduce prices to sell excess stock`,`Raise prices of slow-moving products`,`Launch new products at high prices`,`Increase brand image`],0],
+[`A surge price for ride-hailing during rush hour is an example of:`,[`Dynamic pricing`,`Penetration pricing`,`Predatory pricing`,`Psychological pricing`],0],
+[`A disadvantage of market skimming is that it:`,[`May attract competitors and limit sales volume`,`Always sets prices too low`,`Reduces revenue immediately`,`Removes all brand image`],0],
+[`A disadvantage of penetration pricing is:`,[`Low margins and slow return on investment`,`Very high margins from day one`,`No competition at any time`,`Instant strong brand image`],0],
+[`Which pricing strategy most directly targets price-sensitive buyers in a mature market?`,[`Discounts and value-added offers`,`Market skimming at very high prices`,`Predatory pricing against all rivals`,`Ignoring competitors`],0],
+[`Which is an example of a segmented price based on time of use?`,[`Cheaper movie tickets for morning shows`,`A single price for all cinema seats at all times`,`A premium price during a product shortage only`,`A bundled combo for a set price`],0],
+[`Which pricing approach ignores buyers' perceptions and may leave value on the table?`,[`Cost-plus pricing`,`Customer value-based pricing`,`Penetration pricing`,`Prestige pricing`],0],
+[`Which strategy is most likely used to deter new competitors from entering the market?`,[`Penetration pricing with a low introductory price`,`Market skimming with a high introductory price`,`Prestige pricing`,`Odd-even pricing`],0],
+[`Which strategy describes setting the price of two products together so that the total is priced as one package?`,[`Product-bundle pricing`,`Captive pricing`,`Dynamic pricing`,`By-product pricing`],0],
+[`Which is a reason firms use psychological pricing?`,[`To make prices seem lower than they are`,`To raise production costs`,`To reduce the number of products`,`To avoid competitors`],0],
+[`Penetration pricing is most suitable when:`,[`Demand is highly price sensitive and economies of scale are possible`,`Demand is inelastic and the product is unique`,`The company wants to signal luxury`,`Competitors are absent`],0],
+[`A two-part price consists of:`,[`A fixed fee plus a variable usage fee`,`Two products sold at the same price`,`A price for buyers and a price for sellers`,`A price before and after tax`],0],
+[`Which approach is most useful for a commodity with many identical rivals?`,[`Competition-based (going-rate) pricing`,`Prestige pricing`,`Market skimming`,`Customer value-based pricing`],0],
+[`Escalator pricing involves:`,[`Gradually increasing prices over time`,`Reducing prices every week`,`Setting prices by customer age`,`Charging only at launch`],0],
+[`The purpose of a price floor is to:`,[`Ensure the price covers at least the cost of producing the product`,`Set the maximum price customers pay`,`Match competitor prices exactly`,`Reduce advertising costs`],0],
+[`Which is a benefit of market skimming?`,[`Quick recovery of development costs from high-value segments`,`Large sales volume from day one`,`Weaker brand image`,`Immediately low margins`],0],
+[`Price discrimination requires that:`,[`Customer segments differ in price sensitivity and resale between segments is hard`,`Every customer pays exactly the same price`,`Sellers have no market power`,`Products are identical in all markets`],0],
+[`Which factor makes buyers less price sensitive?`,[`The product is unique and buyers have few substitutes`,`Many close substitutes are available`,`Prices are very easy to compare`,`The purchase is a large share of income with easy alternatives`],0],
+[`Demand is most price elastic when:`,[`Many substitutes are available`,`The product is unique`,`Buyers have no alternatives`,`The product is a must-have with no substitutes`],0],
+[`Which is an example of optional product pricing in a cinema?`,[`Popcorn and drinks sold separately from the ticket`,`Free popcorn included with the ticket`,`A flat fee for everyone regardless of seat`,`The cinema closed on Monday`],0],
+[`Value-for-money pricing communicates to customers that:`,[`They receive a clearly good value compared with what they pay`,`They pay the highest price possible`,`They pay cost plus a random markup`,`They receive no product benefits`],0],
+[`Which strategy lowers the price of one product to boost sales of others?`,[`Loss-leader pricing`,`Market skimming`,`Two-part pricing`,`Escalator pricing`],0],
+[`Selling the same product in different packages at different prices to different customers is:`,[`Segmented pricing`,`Dynamic pricing`,`Psychological pricing`,`Target costing`],0],
+[`A ticket price that changes depending on the time of purchase and remaining seats is an example of:`,[`Dynamic pricing`,`Captive pricing`,`Prestige pricing`,`Two-part pricing`],0]
+]
+}};
+let Q={on:false};
+const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function vQuiz(){
+  if(Q.on) return quizCard();
+  const subs=SUBJECTS.filter(s=>QB[s.id]);
+  if(!subs.length) return `<div class='card'>Chưa có bộ câu hỏi.</div>`;
+  const sel=document.getElementById('qs');
+  const sid=sel&&QB[sel.value]?sel.value:subs[0].id;
+  const chs=Object.keys(QB[sid]).map(Number);
+  return `<div class='card'><h3>Luyện trắc nghiệm</h3><div class='hint'>Đáp án hiện ngay sau khi chọn. Thứ tự câu và đáp án được đảo mỗi lần làm. Kết thúc bài sẽ ghi điểm vào lịch hôm nay.</div>
+  <div class='row' style='margin-top:12px;flex-wrap:wrap;gap:10px'>
+  <label>Môn<select id='qs' onchange='render()'>${subs.map(s=>`<option value='${s.id}' ${s.id===sid?'selected':''}>${esc(s.name)}</option>`).join('')}</select></label>
+  <label>Chương<select id='qc'>${chs.map(i=>`<option value='${i}'>${esc(SUBJ[sid].ch[i])} (${QB[sid][i].length} câu)</option>`).join('')}</select></label>
+  <button class='btn' onclick='startQuiz()'>Bắt đầu</button></div></div>`;
+}
+function startQuiz(){
+  const sub=document.getElementById('qs').value, ch=+document.getElementById('qc').value;
+  const list=QB[sub][ch].map(it=>{const idx=sh(it[1].map((_,i)=>i));return {q:it[0],opts:idx.map(i=>it[1][i]),ans:idx.indexOf(it[2])}});
+  Q={on:true,sub,ch,list:sh(list),i:0,sel:null,ok:0,wrong:[],saved:false};
+  render();
+}
+function quizCard(){
+  const n=Q.list.length, s=SUBJ[Q.sub], sub=`${esc(s.name)} · ${esc(s.ch[Q.ch])}`;
+  if(Q.i>=n){
+    if(!Q.saved){state.logs.push({id:uid(),date:ymd(new Date()),subject:Q.sub,type:'quiz',chapter:String(Q.ch),score:Math.round(Q.ok/n*100)/10,minutes:0,note:'Trắc nghiệm: '+Q.ok+'/'+n+' đúng'});save();Q.saved=true;}
+    return `<div class='card'><h3>Kết quả</h3><div class='stat'>${Q.ok}/${n} đúng (${Math.round(Q.ok/n*100)}%)</div><div class='meta'>${sub}</div>${Q.wrong.length?`<h2>Câu sai</h2>${Q.wrong.map(w=>`<div class='meta'>• ${esc(w)}</div>`).join('')}`:`<div class='meta'>Không có câu sai.</div>`}<div style='margin-top:14px'><button class='btn' onclick='exitQuiz()'>Xong</button></div></div>`;
+  }
+  const q=Q.list[Q.i], done=Q.sel!==null;
+  return `<div class='card'><div class='meta'>Câu ${Q.i+1}/${n} · ${sub} · đúng ${Q.ok}</div>
+  <h3 style='font-size:16px;line-height:1.5'>${esc(q.q)}</h3>
+  ${q.opts.map((o,k)=>{let c='';if(done){if(k===q.ans)c='good';else if(k===Q.sel)c='bad';}return `<button class='opt ${c}' onclick='pick(${k})'>${esc(o)}</button>`}).join('')}
+  ${done?`<div class='hint'>${Q.sel===q.ans?'Chính xác.':'Đáp án đúng: '+esc(q.opts[q.ans])}</div><button class='btn' onclick='nextQ()'>${Q.i+1>=n?'Xem kết quả':'Câu tiếp'}</button>`:''}</div>`;
+}
+function pick(k){const q=Q.list[Q.i];if(Q.sel!==null)return;Q.sel=k;if(k===q.ans)Q.ok++;else Q.wrong.push(q.q);render();}
+function nextQ(){Q.i++;Q.sel=null;render();}
+function exitQuiz(){Q={on:false};render();}
+render();
+</script>
+</body>
+</html>
